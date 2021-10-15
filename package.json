@@ -2,8 +2,12 @@
   "name": "hitchr-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "start": "node src/index.js",
+    "watch": "nodemon serc/index.js",
     "test": "jest"
   },
   "repository": {
