@@ -1,0 +1,19 @@
+{
+  "name": "hitchr-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Creative-Beavers/hitchr-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Creative-Beavers/hitchr-backend/issues"
+  },
+  "homepage": "https://github.com/The-Creative-Beavers/hitchr-backend#readme"
+}
