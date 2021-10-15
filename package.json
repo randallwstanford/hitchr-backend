@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/The-Creative-Beavers/hitchr-backend/issues"
   },
-  "homepage": "https://github.com/The-Creative-Beavers/hitchr-backend#readme"
+  "homepage": "https://github.com/The-Creative-Beavers/hitchr-backend#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.2.5"
+  }
 }
