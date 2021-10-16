@@ -30,22 +30,20 @@ jobs:
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-  build:
-    needs: container-job
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 14.x
         cache: 'npm'
+    - uses: actions/checkout@v1
+    # - run: node client.js
+    #   working-directory: ./postgres
+    #   env:
+    #     # use postgres for the host here because we have specified a container for the job.
+    #     # If we were running the job on the VM this would be localhost
+    #     POSTGRES_HOST: postgres
+    #     POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
     - run: npm i
     - run: npm run lint
     - run: npm test
