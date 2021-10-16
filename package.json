@@ -2,8 +2,12 @@
   "name": "hitchr-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "start": "node src/index.js",
+    "watch": "nodemon serc/index.js",
     "test": "jest"
   },
   "repository": {
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/The-Creative-Beavers/hitchr-backend/issues"
   },
-  "homepage": "https://github.com/The-Creative-Beavers/hitchr-backend#readme"
+  "homepage": "https://github.com/The-Creative-Beavers/hitchr-backend#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.2.5",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
 }
