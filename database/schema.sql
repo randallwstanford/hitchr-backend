@@ -1,9 +1,3 @@
-DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS rides CASCADE;
-DROP TABLE IF EXISTS messages CASCADE;
-DROP TABLE IF EXISTS destination CASCADE;
-DROP TABLE IF EXISTS payment CASCADE;
-DROP TABLE IF EXISTS users_rides CASCADE;
 
 
 CREATE TABLE users (
@@ -11,10 +5,13 @@ CREATE TABLE users (
   username VARCHAR(100) NOT NULL,
   password VARCHAR(30) NOT NULL,
   payment_methods JSON,
-  average_rating DECIMAL DEFAULT 0,
-  total_ratings INTEGER DEFAULT 0
+  average_rider_rating DECIMAL DEFAULT 0,
+  total_rider_ratings INTEGER DEFAULT 0,
+  isdriver BOOLEAN DEFAULT false,
+  average_driver_rating DECIMAL DEFAULT 0,
+  total_driver_ratings INTEGER DEFAULT 0
 );
-CREATE TABLE destination (
+CREATE TABLE destinations (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   coordinate point NOT NULL
@@ -25,9 +22,9 @@ CREATE TABLE rides (
   driver_id INTEGER,
   FOREIGN KEY(driver_id) REFERENCES users(id),
   start_dest INTEGER,
-  FOREIGN KEY(start_dest) REFERENCES destination(id),
+  FOREIGN KEY(start_dest) REFERENCES destinations(id),
   end_dest INTEGER,
-  FOREIGN KEY(end_dest) REFERENCES destination(id),
+  FOREIGN KEY(end_dest) REFERENCES destinations(id),
   available_seats INTEGER NOT NULL,
   completed timestamp without time zone DEFAULT NULL,
   price INTEGER
@@ -43,11 +40,11 @@ CREATE TABLE messages (
   timestamp timestamp without time zone NOT NULL
 );
 
-CREATE TABLE payment (
+/* CREATE TABLE payment (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   icon VARCHAR(300)
-);
+); */
 
 CREATE TABLE users_rides (
   id SERIAL PRIMARY KEY,
@@ -59,8 +56,7 @@ CREATE TABLE users_rides (
 
 
 /* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
-COPY destination from '/home/gaoy11/hackreactor/hitchr-backend/csv/destination.csv' DELIMITER ',' CSV HEADER;
+COPY destinations from '/home/gaoy11/hackreactor/hitchr-backend/csv/destinations.csv' DELIMITER ',' CSV HEADER;
 COPY rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/rides.csv' DELIMITER ',' CSV HEADER;
 COPY messages from '/home/gaoy11/hackreactor/hitchr-backend/csv/messages.csv' DELIMITER ',' CSV HEADER;
-COPY payment from '/home/gaoy11/hackreactor/hitchr-backend/csv/payment.csv' DELIMITER ',' CSV HEADER;
 COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER; */
