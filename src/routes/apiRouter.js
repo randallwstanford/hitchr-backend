@@ -1,13 +1,13 @@
 const express = require('express');
 const messagesRouter = require('./apiRoutes/messages');
 const ridesRouter = require('./apiRoutes/rides');
-const usersRouter = require('./apiRoutes/users');
+const userRouter = require('./apiRoutes/user');
 
 const router = express.Router();
 
 router.use('/messages', messagesRouter);
 router.use('/rides', ridesRouter);
-router.use('/users', usersRouter);
+router.use('/user', userRouter);
 
 router.post('/login', (req, res) => {
   res.send('given a username and password, request a session token');
