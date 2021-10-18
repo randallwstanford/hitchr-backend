@@ -1,7 +1,7 @@
 const supertest = require('supertest');
 
 const env = require('./db/env');
-const dbPool = require('./db/db');
+const { dbPool } = require('./db/db');
 const App = require('./app');
 
 describe('Given a blank database', () => {
@@ -9,7 +9,7 @@ describe('Given a blank database', () => {
   let pool;
   let client;
   beforeAll(() => {
-    pool = dbPool(env.host, env.user, env.password);
+    pool = dbPool(env.host, env.user, env.password, env.database);
   });
 
   beforeEach((done) => {
