@@ -18,8 +18,6 @@ jobs:
       matrix:
         node-version:
         - 14.x
-        ruby-version:
-        - '2.7.2'
         database-name:
         - my-app
         database-password:
@@ -53,6 +51,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: "echo \"${{ matrix.database-host }}:${{ matrix.database-port }}:${{ matrix.database-name }}:${{ matrix.database-user }}:${{ matrix.database-password }}\" > pgpassfile"
+    - run: pgsql --no-password --file=database/schema.sql --set=passfile=pgpassfile
     - run: npm i
     - run: "echo \"module.exports = {host: 'localhost', user: 'postgres', password: 'postgres', database: 'sample'};\" > src/db/env.js"
     - run: npx eslint src/db/env.js --fix
