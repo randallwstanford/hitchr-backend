@@ -16,7 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version:
+        - 14.x
         ruby-version:
         - '2.7.2'
         database-name:
