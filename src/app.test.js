@@ -1,18 +1,35 @@
 const supertest = require('supertest');
+const dbPool = require('./db/env');
+
 const App = require('./app');
 
 describe('Given a blank database', () => {
   let server;
+  let pool;
+  let client;
+  beforeAll(() => {
+    pool = dbPool();
+  });
+
   beforeEach((done) => {
     (async () => {
-      server = App(5000);
+      client = await pool.connect();
+
+      server = App(
+        5000,
+        client,
+      );
       done();
     })();
   });
   afterEach(() => {
     server.close();
+    client.release();
   });
-  describe('When a valid GET is made to /test', () => {
+  afterAll(() => {
+    pool.end();
+  });
+  xdescribe('When a valid GET is made to /test', () => {
     let getResponse;
     beforeEach(async () => {
       getResponse = await supertest(server).get('/test');
