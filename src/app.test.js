@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const dbPool = require('./db/env');
+const dbPool = require('./db/db');
 
 const App = require('./app');
 
@@ -29,7 +29,7 @@ describe('Given a blank database', () => {
   afterAll(() => {
     pool.end();
   });
-  xdescribe('When a valid GET is made to /test', () => {
+  describe('When a valid GET is made to /test', () => {
     let getResponse;
     beforeEach(async () => {
       getResponse = await supertest(server).get('/test');
