@@ -53,6 +53,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-    - run: cp src/db/env.example.js src/db/env.js
+    - run: echo "module.exports = {host: \'localhost\', user: \'postgres\', password: \'postgres\'};" > src/db/env.js
     - run: npm run lint
     - run: npm test
