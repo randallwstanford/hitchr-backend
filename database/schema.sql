@@ -58,9 +58,9 @@ CREATE TABLE users_rides (
 );
 
 
-COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
+/* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
 COPY destination from '/home/gaoy11/hackreactor/hitchr-backend/csv/destination.csv' DELIMITER ',' CSV HEADER;
 COPY rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/rides.csv' DELIMITER ',' CSV HEADER;
 COPY messages from '/home/gaoy11/hackreactor/hitchr-backend/csv/messages.csv' DELIMITER ',' CSV HEADER;
 COPY payment from '/home/gaoy11/hackreactor/hitchr-backend/csv/payment.csv' DELIMITER ',' CSV HEADER;
-COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER;
+COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER; */
