@@ -17,7 +17,20 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        ruby-version:
+        - '2.7.2'
+        node-version:
+        - '12.22'
+        database-name:
+        - my-app
+        database-password:
+        - postgres
+        database-user:
+        - postgres
+        database-host:
+        - 127.0.0.1
+        database-port:
+        - 5432
 
     steps:
     - uses: actions/checkout@v2
