@@ -1,8 +1,13 @@
 const { Pool } = require('pg');
 const env = require('./env');
 
-function dbPool(host, user, password) {
-  return new Pool({ host, user, password });
+function dbPool(host, user, password, database) {
+  return new Pool({
+    host,
+    user,
+    password,
+    database,
+  });
 }
 
 const pool = dbPool(env);
@@ -16,4 +21,4 @@ const pool = dbPool(env);
   pool.end();
 })();
 
-module.exports = dbPool;
+module.exports = pool;
