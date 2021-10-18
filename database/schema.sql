@@ -7,7 +7,7 @@ CREATE TABLE users (
   payment_methods JSON,
   average_rider_rating DECIMAL DEFAULT 0,
   total_rider_ratings INTEGER DEFAULT 0,
-  isdriver BOOLEAN DEFAULT false,
+  is_driver BOOLEAN DEFAULT false,
   average_driver_rating DECIMAL DEFAULT 0,
   total_driver_ratings INTEGER DEFAULT 0
 );
@@ -55,8 +55,8 @@ CREATE TABLE users_rides (
 );
 
 
-/* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
+COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
 COPY destinations from '/home/gaoy11/hackreactor/hitchr-backend/csv/destinations.csv' DELIMITER ',' CSV HEADER;
 COPY rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/rides.csv' DELIMITER ',' CSV HEADER;
 COPY messages from '/home/gaoy11/hackreactor/hitchr-backend/csv/messages.csv' DELIMITER ',' CSV HEADER;
-COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER; */
+COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER;
