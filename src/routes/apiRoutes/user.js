@@ -10,7 +10,11 @@ router.get('/:userId(\\d+)/rides', (req, res) => {
   res.send('getting all rides for the current user');
 });
 
-router.patch('/:userId(\\d+)/rating', (req, res) => {
+router.patch('/:userId(\\d+)/driverRating', (req, res) => {
+  res.send('add a rating to the given userId');
+});
+
+router.patch('/:userId(\\d+)/riderRating', (req, res) => {
   res.send('add a rating to the given userId');
 });
 
