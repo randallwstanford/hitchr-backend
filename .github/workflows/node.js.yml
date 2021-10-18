@@ -52,7 +52,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: "echo \"${{ matrix.database-host }}:${{ matrix.database-port }}:${{ matrix.database-name }}:${{ matrix.database-user }}:${{ matrix.database-password }}\" > pgpassfile"
-    - run: "pgsql --no-password --file=database/schema.sql --set=passfile=pgpassfile"
+    - run: "pgsql -w --file=database/schema.sql --set=passfile=pgpassfile"
     - run: npm i
     - run: "echo \"module.exports = {host: '${{ matrix.database-host }}', user: '${{ matrix.database-user }}', password: '${{ matrix.database-password }}', database: '${{ matrix.database-name }}'};\" > src/db/env.js"
     - run: npx eslint src/db/env.js --fix
