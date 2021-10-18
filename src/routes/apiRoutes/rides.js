@@ -15,7 +15,7 @@ router.patch('/:rideId(\\d+)/complete', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  res.send('get a list of rides');
+  res.send('get a list of rides given a starting and an ending destination');
 });
 
 router.post('/', (req, res) => {
