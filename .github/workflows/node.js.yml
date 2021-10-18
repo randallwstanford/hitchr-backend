@@ -19,8 +19,6 @@ jobs:
         node-version: [14.x]
         ruby-version:
         - '2.7.2'
-        node-version:
-        - '12.22'
         database-name:
         - my-app
         database-password:
