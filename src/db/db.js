@@ -21,4 +21,4 @@ const pool = dbPool(env);
   pool.end();
 })();
 
-module.exports = pool;
+module.exports = { dbPool, pool };
