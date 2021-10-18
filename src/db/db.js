@@ -1,10 +1,11 @@
 const { Pool } = require('pg');
+const env = require('./env');
 
-const pool = new Pool({
-  host: 'localhost',
-  user: 'dev',
-  password: 'develop',
-});
+function dbPool(host, user, password) {
+  return new Pool({ host, user, password });
+}
+
+const pool = dbPool(env);
 
 (async () => {
   const client = await pool.connect();
@@ -14,3 +15,5 @@ const pool = new Pool({
 
   pool.end();
 })();
+
+module.exports = dbPool;
