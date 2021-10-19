@@ -9,6 +9,8 @@ const createRide = `
     VALUES($1, $2, $3, $4, $5)
 `;
 
-const getRide = 'SELECT * FROM rides WHERE id = $1';
+const getRideById = 'SELECT * FROM rides WHERE id = $1';
 
-module.exports = { createRide, getRide };
+const getRides = 'SELECT * FROM rides LIMIT 10';
+
+module.exports = { createRide, getRideById, getRides };

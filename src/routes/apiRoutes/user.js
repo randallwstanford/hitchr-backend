@@ -1,13 +1,14 @@
 const express = require('express');
+const usersController = require('../../controllers/users/users');
 
 const router = express.Router();
 
-router.get('/:userId(\\d+)', (req, res) => {
-  res.send('getting user info');
-});
+// get particular user's information
+router.get('/:userId(\\d+)', usersController.getUser);
 
+// getting all rides for the current user
 router.get('/:userId(\\d+)/rides', (req, res) => {
-  res.send('getting all rides for the current user');
+  res.send();
 });
 
 router.patch('/:userId(\\d+)/driverRating', (req, res) => {
