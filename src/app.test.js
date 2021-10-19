@@ -9,7 +9,7 @@ describe('Given a blank database', () => {
   let pool;
   let client;
   beforeAll(() => {
-    pool = dbPool(env.host, env.user, env.password, env.database);
+    pool = dbPool(env);
   });
 
   beforeEach((done) => {

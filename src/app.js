@@ -14,7 +14,7 @@ function App(port, client) {
       result = await client.query('SELECT $1::text as message', ['test']);
     } catch (e) {
       console.error(e);
-      res.status(500);
+      res.status(500).send();
     }
 
     res.send({ foo: result.rows[0].message });
