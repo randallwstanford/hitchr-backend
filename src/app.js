@@ -18,7 +18,13 @@ function App(port, client) {
   app.use('/api', apiRouter);
 
   app.get('/test', async (req, res) => {
-    const result = await client.query('SELECT $1::text as message', ['test']);
+    let result;
+    try {
+      result = await client.query('SELECT $1::text as message', ['test']);
+    } catch (e) {
+      console.error(e);
+      res.status(500).send();
+    }
 
     res.send({ foo: result.rows[0].message });
   });
