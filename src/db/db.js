@@ -12,13 +12,4 @@ function dbPool(host, user, password, database) {
 
 const pool = dbPool(env);
 
-(async () => {
-  const client = await pool.connect();
-  const res = await client.query('SELECT $1::text as message', ['Hello world!']);
-  console.log(res.rows[0].message);
-  client.release();
-
-  pool.end();
-})();
-
 module.exports = { dbPool, pool };
