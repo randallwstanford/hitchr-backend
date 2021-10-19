@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
 const env = require('./db/env');
@@ -45,16 +45,13 @@ describe('Given a blank database', () => {
     });
   });
   describe('When a command is sent to the DB', () => {
-    beforeEach((done) => {
-      fs.readFile(path.join(__dirname, '..', 'database', 'schema.sql'), (err, result) => {
-        if (err) {
-          console.error(err);
-          done();
-        } else {
-          // client.query(result.toString()).finally(done);
-          done();
-        }
-      });
+    beforeAll(async () => {
+      const drop = await fs.readFile(path.join(__dirname, '..', 'database', 'drop.sql'));
+      const dropQuery = drop.toString();
+      await client.query(dropQuery);
+      const load = await fs.readFile(path.join(__dirname, '..', 'database', 'schema.sql'));
+      const loadQuery = load.toString();
+      await client.query(loadQuery);
     });
     test('Then a command can run', async () => {
       const users = await client.query('SELECT * FROM users');
