@@ -51,7 +51,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: docker exec postgres:latest pgsql --no-password --file=database/schema.sql --set=passfile=pgpassfile
+    - run: docker container ls | grep postgres
+    - run: docker container ls | grep postgres:latest | docker exec $1 pgsql --no-password --file=database/schema.sql --set=passfile=pgpassfile
     - run: npm i
     - run: "echo \"module.exports = {host: '${{ matrix.database-host }}', user: '${{ matrix.database-user }}', password: '${{ matrix.database-password }}', database: '${{ matrix.database-name }}'};\" > src/db/env.js"
     - run: npx eslint src/db/env.js --fix
