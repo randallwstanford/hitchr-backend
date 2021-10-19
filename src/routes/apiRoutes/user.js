@@ -1,10 +1,9 @@
 const express = require('express');
+const usersCtl = require('../../controllers/users/users');
 
 const router = express.Router();
 
-router.get('/:userId(\\d+)', (req, res) => {
-  res.send('getting user info');
-});
+router.get('/:userId(\\d+)', usersCtl.getUser);
 
 router.get('/:userId(\\d+)/rides', (req, res) => {
   res.send('getting all rides for the current user');
