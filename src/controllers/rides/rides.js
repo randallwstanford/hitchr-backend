@@ -31,9 +31,12 @@ const getRides = (req, res) => {
 };
 
 const postNewRide = (req, res) => {
-  const values = [];
+  const {
+    driverId, startDest, endDest, availableSeats, completed, price,
+  } = req.body;
+  const values = [driverId, startDest, endDest, availableSeats, completed, price];
   pool.query(queries.createRide, values)
-    .then(() => res.status(201))
+    .then(() => res.sendStatus(201))
     .catch((err) => console.error(err.stack));
 };
 
