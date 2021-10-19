@@ -3,7 +3,7 @@ const dbPool = require('./db/env');
 
 const App = require('./app');
 
-describe('Given a blank database', () => {
+xdescribe('Given a blank database', () => {
   let server;
   let pool;
   let client;
