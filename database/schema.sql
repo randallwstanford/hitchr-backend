@@ -35,7 +35,7 @@ CREATE TABLE messages (
   sender_id INTEGER,
   FOREIGN KEY (sender_id) REFERENCES users(id),
   recipient_id INTEGER,
-  FOREIGN KEY (recipent_id) REFERENCES users(id),
+  FOREIGN KEY (recipient_id) REFERENCES users(id),
   timestamp timestamp without time zone NOT NULL
 );
 
