@@ -24,7 +24,6 @@ const getRides = (req, res) => {
         priceData = priceData.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         alteredData.rows[i].price = priceData;
       }
-      console.log(alteredData.rows);
       return alteredData;
     })
     .then((data) => res.status(200).json(data.rows))
