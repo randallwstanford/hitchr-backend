@@ -2,9 +2,9 @@ const { pool } = require('../../db/db');
 const queries = require('./ridesQueries');
 
 const getRide = (req, res) => {
-  const { rideId } = parseInt(req.params.rideId, 10);
+  const rideId = parseInt(req.params.rideId, 10);
   pool.query(queries.getRideById, [rideId])
-    .then((data) => res.status(200).json(data))
+    .then((data) => res.status(200).json(data.rows[0]))
     .catch((err) => console.error(err.stack));
 };
 
