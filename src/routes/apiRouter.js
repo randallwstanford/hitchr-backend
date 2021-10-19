@@ -2,6 +2,7 @@ const express = require('express');
 const messagesRouter = require('./apiRoutes/messages');
 const ridesRouter = require('./apiRoutes/rides');
 const userRouter = require('./apiRoutes/user');
+const authRouter = require('./apiRoutes/auth');
 
 const router = express.Router();
 
@@ -9,13 +10,9 @@ router.use('/messages', messagesRouter);
 router.use('/rides', ridesRouter);
 router.use('/user', userRouter);
 
-router.post('/login', (req, res) => {
-  res.send('given a username and password, request a session token');
-});
-
-router.delete('/logout', (req, res) => {
-  res.send('logout by deleting current session token');
-});
+router.post('/create', authRouter.create);
+router.post('/login', authRouter.login);
+router.delete('/logout', authRouter.logout);
 
 router.get('/', (req, res) => {
   res.send('Hello from the apiRouter');

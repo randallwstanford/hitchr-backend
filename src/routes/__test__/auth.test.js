@@ -30,13 +30,14 @@ describe('Given a blank database', () => {
   afterAll(() => {
     pool.end();
   });
-  describe('When a valid GET is made to /test', () => {
-    let getResponse;
+
+  describe('When a valid POST is made to /create', () => {
+    let createResponse;
     beforeEach(async () => {
-      getResponse = await supertest(server).get('/test');
+      createResponse = await supertest(server).post('/api/create');
     });
-    test('Then the server responds with 401', () => {
-      expect(getResponse.statusCode).toBe(401);
+    test('Then the server responds with 201', () => {
+      expect(createResponse.statusCode).toBe(201);
     });
   });
 });
