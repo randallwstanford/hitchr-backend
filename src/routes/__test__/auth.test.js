@@ -1,8 +1,8 @@
 const supertest = require('supertest');
 
-const env = require('./db/env');
-const { dbPool } = require('./db/db');
-const App = require('./app');
+const env = require('../../db/env');
+const { dbPool } = require('../../db/db');
+const App = require('../../app');
 
 describe('Given a blank database', () => {
   let server;
@@ -35,11 +35,8 @@ describe('Given a blank database', () => {
     beforeEach(async () => {
       getResponse = await supertest(server).get('/test');
     });
-    test('Then the server responds with 200', () => {
-      expect(getResponse.statusCode).toBe(200);
-    });
-    test('The the server responds with test', () => {
-      expect(getResponse.body.foo).toBe('test');
+    test('Then the server responds with 401', () => {
+      expect(getResponse.statusCode).toBe(401);
     });
   });
 });
