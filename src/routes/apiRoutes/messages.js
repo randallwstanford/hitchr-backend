@@ -1,12 +1,10 @@
 const express = require('express');
-const messagesController = require('../../controllers/messages/messages');
+const { getMessages, postMessage } = require('../../controllers/messages/messages');
 
 const router = express.Router();
 
-router.get('/:userId(\\d+)', messagesController.getMessage);
+router.get('/:userId(\\d+)', getMessages);
 
-router.post('/:userId(\\d+)', (req, res) => {
-  res.send('posting a message');
-});
+router.post('/:userId(\\d+)', postMessage);
 
 module.exports = router;
