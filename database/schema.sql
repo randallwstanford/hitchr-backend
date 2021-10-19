@@ -1,5 +1,3 @@
-
-
 CREATE TABLE users (
   id SERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(100) NOT NULL,
@@ -7,10 +5,11 @@ CREATE TABLE users (
   payment_methods JSON,
   average_rider_rating DECIMAL DEFAULT 0,
   total_rider_ratings INTEGER DEFAULT 0,
-  isdriver BOOLEAN DEFAULT false,
+  is_driver BOOLEAN DEFAULT false,
   average_driver_rating DECIMAL DEFAULT 0,
   total_driver_ratings INTEGER DEFAULT 0
 );
+
 CREATE TABLE destinations (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
@@ -35,16 +34,10 @@ CREATE TABLE messages (
   text VARCHAR(250) NOT NULL,
   sender_id INTEGER,
   FOREIGN KEY (sender_id) REFERENCES users(id),
-  recipent_id INTEGER,
+  recipient_id INTEGER,
   FOREIGN KEY (recipent_id) REFERENCES users(id),
   timestamp timestamp without time zone NOT NULL
 );
-
-/* CREATE TABLE payment (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  icon VARCHAR(300)
-); */
 
 CREATE TABLE users_rides (
   id SERIAL PRIMARY KEY,
