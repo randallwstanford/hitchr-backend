@@ -1,9 +1,8 @@
 const { pool } = require('../../db/db');
-const { getMessagesQuery, postMessageQuery } = require('./userQueries');
+const { getMessagesQuery, postMessageQuery } = require('./messagesQueries');
 
 exports.getMessages = (req, res) => {
   const { recipientId, senderId } = req.params;
-
   pool.query(getMessagesQuery, [recipientId, senderId])
     .then((data) => res.status(200).json(data))
     .catch((err) => console.error(err.stack));
