@@ -1,4 +1,6 @@
 const supertest = require('supertest');
+const fs = require('fs');
+const path = require('path');
 
 const env = require('./db/env');
 const { dbPool } = require('./db/db');
@@ -40,6 +42,23 @@ describe('Given a blank database', () => {
     });
     test('The the server responds with test', () => {
       expect(getResponse.body.foo).toBe('test');
+    });
+  });
+  describe('When a command is sent to the DB', () => {
+    beforeEach((done) => {
+      fs.readFile(path.join(__dirname, '..', 'database', 'schema.sql'), (err, result) => {
+        if (err) {
+          console.error(err);
+          done();
+        } else {
+          // client.query(result.toString()).finally(done);
+          done();
+        }
+      });
+    });
+    test('Then a command can run', async () => {
+      const users = await client.query('SELECT * FROM users');
+      expect(users.rows).toHaveLength(0);
     });
   });
 });
