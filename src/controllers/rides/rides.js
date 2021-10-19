@@ -4,6 +4,13 @@ const queries = require('./ridesQueries');
 const getRide = (req, res) => {
   const rideId = parseInt(req.params.rideId, 10);
   pool.query(queries.getRideById, [rideId])
+    .then((data) => {
+      const alteredData = data;
+      let priceData = alteredData.rows[0].price / 100;
+      priceData = priceData.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+      alteredData.rows[0].price = priceData;
+      return alteredData;
+    })
     .then((data) => res.status(200).json(data.rows[0]))
     .catch((err) => console.error(err.stack));
 };
