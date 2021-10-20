@@ -15,8 +15,6 @@ router.patch('/:rideId(\\d+)/complete', (req, res) => {
 
 router.get('/', ridesController.getRides);
 
-router.post('/', (req, res) => {
-  res.send('post a new ride');
-});
+router.post('/', ridesController.postNewRide);
 
 module.exports = router;
