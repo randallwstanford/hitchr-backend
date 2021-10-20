@@ -1,6 +1,10 @@
 const bcrypt = require('bcrypt');
 const login = require('../../controllers/auth/login');
 
+function hashPassword(password) {
+  return bcrypt.hash(password, 10).then(p => p.slice(0, 30));
+}
+
 module.exports.create = async (req, res) => {
   const {
     username, password, isDriver, paymentMethods,
@@ -8,14 +12,20 @@ module.exports.create = async (req, res) => {
   if (username && password && isDriver !== undefined && paymentMethods) {
     let passHash;
     try {
-      passHash = await bcrypt.hash(password, 10);
+      passHash = await hashPassword(password);
     } catch (e) {
       console.error(e);
       res.status(500).send();
       return;
     }
     try {
-      await login.createUser(username, passHash, isDriver, paymentMethods);
+      console.log(passHash.length);
+      await login.createUser(
+        username,
+        passHash,
+        isDriver,
+        JSON.stringify(paymentMethods),
+      );
     } catch (e) {
       console.error(e);
       res.status(500).send();
