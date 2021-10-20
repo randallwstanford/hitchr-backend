@@ -23,7 +23,9 @@ function App(port, client) {
   });
 
   return app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`);
+    if (process.env.NODE_ENV !== 'test') {
+      console.log(`Listening on http://localhost:${port}`);
+    }
   });
 }
 
