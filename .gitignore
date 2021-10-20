@@ -1,3 +1,5 @@
 node_modules/
 *.csv
 src/db/env.js
+src/controllers/gMaps/gMapKey.js
+.idea
