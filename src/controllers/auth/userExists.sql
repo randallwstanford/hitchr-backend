@@ -1,3 +1,3 @@
 SELECT *
 FROM users
-WHERE user.username=$1 AND user.password=$2;
+WHERE users.username=$1 AND users.password=$2;

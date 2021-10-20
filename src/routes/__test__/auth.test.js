@@ -54,6 +54,18 @@ describe('Given a blank database', () => {
     test('Then the server responds with 201', () => {
       expect(createResponse.statusCode).toBe(201);
     });
+    describe('When the same user tries to log in', () => {
+      let loginResponse;
+      beforeEach(async () => {
+        loginResponse = await supertest(server).post('/api/login').send({
+          username: 'user',
+          password: 'StrongPassword1234',
+        });
+      });
+      test('Then the server should respond with 201', () => {
+        expect(loginResponse.statusCode).toBe(201);
+      });
+    });
   });
 
   describe('when a POST is made to /login', () => {

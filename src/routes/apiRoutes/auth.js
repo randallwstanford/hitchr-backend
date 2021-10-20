@@ -37,6 +37,35 @@ module.exports.create = async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
+  const { username, password } = req.body;
+  if (username && password) {
+    let passHash;
+    try {
+      passHash = await hashPassword(password);
+    } catch (e) {
+      console.error(e);
+      res.status(500).send();
+      return;
+    }
+    let userExists;
+    try {
+      userExists = await login.login(
+        username,
+        passHash,
+      );
+    } catch (e) {
+      console.error(e);
+      res.status(500).send();
+      return;
+    }
+    if (userExists) {
+      res.status(201).send();
+    } else {
+      res.status(401).send();
+    }
+  } else {
+    res.status(400).send();
+  }
   res.status(401).send();
 };
 
