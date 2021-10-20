@@ -35,7 +35,7 @@ CREATE TABLE messages (
   sender_id INTEGER,
   FOREIGN KEY (sender_id) REFERENCES users(id),
   recipient_id INTEGER,
-  FOREIGN KEY (recipent_id) REFERENCES users(id),
+  FOREIGN KEY (recipient_id) REFERENCES users(id),
   timestamp timestamp without time zone NOT NULL
 );
 
@@ -46,7 +46,6 @@ CREATE TABLE users_rides (
   ride_id INTEGER,
   FOREIGN KEY (ride_id) REFERENCES rides(id)
 );
-
 
 /* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
 COPY destinations from '/home/gaoy11/hackreactor/hitchr-backend/csv/destinations.csv' DELIMITER ',' CSV HEADER;
