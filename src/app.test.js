@@ -11,7 +11,7 @@ describe('Given a blank database', () => {
   let pool;
   let client;
   beforeAll(() => {
-    pool = dbPool(env);
+    pool = dbPool({ ...env, database: 'hitchr_test' });
   });
 
   beforeEach((done) => {
@@ -19,7 +19,7 @@ describe('Given a blank database', () => {
       client = await pool.connect();
 
       server = App(
-        5000,
+        5050,
         client,
       );
       done();
