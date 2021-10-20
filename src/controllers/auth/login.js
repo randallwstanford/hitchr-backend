@@ -8,8 +8,10 @@ module.exports.createUser = async (username, passHash, isDriver, paymentMethods)
   return result.rows.length === 1;
 };
 
-module.exports.login = async (username, password) => {
+module.exports.login = async (username, passHash) => {
   const query = await getQuery(path.join(__dirname, 'userExists.sql'));
-  const result = await pool.query(query, [username, password]);
-  return result.rows.length === 1;
+  const result = await pool.query(query, [username, passHash]);
+  console.log(await pool.query('SELECT username, password FROM users;'));
+  console.log(result);
+  return result.rowCount === 1;
 };
