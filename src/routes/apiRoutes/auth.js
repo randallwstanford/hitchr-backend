@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const login = require('../../controllers/auth/login');
 
 function hashPassword(password) {
-  return bcrypt.hash(password, 10).then(p => p.slice(0, 30));
+  return bcrypt.hash(password, 10).then((p) => p.slice(0, 30));
 }
 
 module.exports.create = async (req, res) => {
@@ -19,7 +19,6 @@ module.exports.create = async (req, res) => {
       return;
     }
     try {
-      console.log(passHash.length);
       await login.createUser(
         username,
         passHash,
@@ -38,11 +37,7 @@ module.exports.create = async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-  if (login(req.body.username, await bcrypt.hash(req.body.password, 10))) {
-    res.send();
-  } else {
-    res.status(401).send();
-  }
+  res.status(401).send();
 };
 
 module.exports.logout = (req, res) => {
