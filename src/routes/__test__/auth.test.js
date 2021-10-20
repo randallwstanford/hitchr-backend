@@ -1,20 +1,31 @@
 const supertest = require('supertest');
+const path = require('path');
 
 const env = require('../../db/env');
 const { dbPool } = require('../../db/db');
 const App = require('../../app');
+const { getQuery } = require('../../controllers/utils/getQuery');
 
 describe('Given a blank database', () => {
   let server;
   let pool;
   let client;
-  beforeAll(() => {
+  let dropQuery;
+  let createQuery;
+
+  beforeAll(async () => {
     pool = dbPool({ ...env, database: 'hitchr_test' });
+
+    dropQuery = await getQuery(path.join(__dirname, '..', '..', '..', 'database', 'drop.sql'));
+    createQuery = await getQuery(path.join(__dirname, '..', '..', '..', 'database', 'schema.sql'));
   });
 
   beforeEach((done) => {
     (async () => {
       client = await pool.connect();
+
+      await client.query(dropQuery);
+      await client.query(createQuery);
 
       server = App(
         5001,

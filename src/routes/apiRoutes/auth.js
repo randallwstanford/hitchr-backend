@@ -6,6 +6,9 @@ function hashPassword(password) {
 }
 
 module.exports.create = async (req, res) => {
+  const p1 = await hashPassword('password');
+  const p2 = await hashPassword('password');
+  console.log(p1, p2);
   const {
     username, password, isDriver, paymentMethods,
   } = req.body;
