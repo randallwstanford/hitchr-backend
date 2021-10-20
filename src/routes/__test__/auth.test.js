@@ -10,22 +10,23 @@ describe('Given a blank database', () => {
   let server;
   let pool;
   let client;
-  let dropQuery;
-  let createQuery;
+  const setupQueries = [];
 
   beforeAll(async () => {
     pool = dbPool({ ...env, database: 'hitchr_test' });
 
-    dropQuery = await getQuery(path.join(__dirname, '..', '..', '..', 'database', 'drop.sql'));
-    createQuery = await getQuery(path.join(__dirname, '..', '..', '..', 'database', 'schema.sql'));
+    setupQueries.push(getQuery(path.join(__dirname, '..', '..', '..', 'database', 'drop.sql')));
+    setupQueries.push(getQuery(path.join(__dirname, '..', '..', '..', 'database', 'schema.sql')));
   });
 
   beforeEach((done) => {
     (async () => {
       client = await pool.connect();
 
-      await client.query(dropQuery);
-      await client.query(createQuery);
+      const queries = await Promise.all(setupQueries);
+      queries.forEach(async (q) => {
+        await client.query(q);
+      });
 
       server = App(
         5001,
