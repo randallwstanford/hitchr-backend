@@ -1,8 +1,8 @@
 const express = require('express');
-const gMapsCtl = require('../../controllers/gMaps/gMaps');
+const gMapsController = require('../../controllers/gMaps/gMaps');
 
 const router = express.Router();
 
-router.get('/places/:place', gMapsCtl.getPlaces);
+router.get('/places/:place', gMapsController.getPlaces);
 
 module.exports = router;
