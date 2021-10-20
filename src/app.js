@@ -13,11 +13,8 @@ function App(port, client) {
   };
   app.use(allowCrossDomain);
   app.use(express.json());
-<<<<<<< HEAD
   // app.use(express.urlencoded({ extended: false }));
 
-=======
->>>>>>> 138bda7956ca7d45e069f64219f536f62a5886f3
   app.use('/api', apiRouter);
 
   app.get('/test', async (req, res) => {
