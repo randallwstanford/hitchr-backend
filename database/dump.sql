@@ -660,4 +660,3 @@ ALTER TABLE ONLY public.users_rides
 --
 -- PostgreSQL database dump complete
 --
-
