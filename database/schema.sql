@@ -47,7 +47,6 @@ CREATE TABLE users_rides (
   FOREIGN KEY (ride_id) REFERENCES rides(id)
 );
 
-
 /* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
 COPY destinations from '/home/gaoy11/hackreactor/hitchr-backend/csv/destinations.csv' DELIMITER ',' CSV HEADER;
 COPY rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/rides.csv' DELIMITER ',' CSV HEADER;
