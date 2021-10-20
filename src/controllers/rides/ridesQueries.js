@@ -30,7 +30,7 @@ const getRideById = `
     ),
     (
       SELECT json_agg(user_id) AS riders 
-      FROM users_rides 
+      FROM users_rides
       WHERE ride_id = $1
     ),
     (
@@ -43,7 +43,7 @@ const getRideById = `
       FROM destinations
       WHERE id = rides.end_dest
     )
-  FROM rides 
+  FROM rides
   WHERE id = $1
 `;
 

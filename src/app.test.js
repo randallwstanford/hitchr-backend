@@ -2,18 +2,16 @@ const supertest = require('supertest');
 const fs = require('fs').promises;
 const path = require('path');
 
-let env = require('./db/env');
+const env = require('./db/env');
 const { dbPool } = require('./db/db');
 const App = require('./app');
-
-env = { ...env, database: 'hitchr_test' };
 
 describe('Given a blank database', () => {
   let server;
   let pool;
   let client;
   beforeAll(() => {
-    pool = dbPool(env);
+    pool = dbPool({ ...env, database: 'hitchr_test' });
   });
 
   beforeEach((done) => {
