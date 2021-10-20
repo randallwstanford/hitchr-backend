@@ -12,6 +12,14 @@ module.exports.create = async (req, res) => {
     } catch (e) {
       console.error(e);
       res.status(500).send();
+      return;
+    }
+    try {
+      await login.createUser(username, passHash, isDriver, paymentMethods);
+    } catch (e) {
+      console.error(e);
+      res.status(500).send();
+      return;
     }
     res.status(201).send();
   } else {
