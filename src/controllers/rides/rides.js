@@ -1,3 +1,4 @@
+const camelcaseKeys = require('camelcase-keys');
 const { pool } = require('../../db/db');
 const queries = require('./ridesQueries');
 
@@ -29,7 +30,7 @@ const getRidesByDestinations = (req, res) => {
       }
       return alteredData;
     })
-    .then((data) => res.status(200).json(data.rows))
+    .then((data) => res.status(200).json(camelcaseKeys(data.rows)))
     .catch((err) => console.error(err.stack));
 };
 
