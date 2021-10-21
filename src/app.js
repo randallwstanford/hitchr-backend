@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const apiRouter = require('./routes/apiRouter');
 
 function App(port, client) {
@@ -12,6 +13,7 @@ function App(port, client) {
   };
   app.use(allowCrossDomain);
   app.use(express.json());
+  app.use(cors());
   app.use('/api', apiRouter);
 
   app.get('/test', async (req, res) => {

@@ -115,9 +115,17 @@ const getRides = `
   LIMIT 10
 `;
 
+const completeRide = `
+    UPDATE rides SET
+    completed = current_timestamp(0)
+    WHERE id=$1
+    RETURNING id, completed;
+`;
+
 module.exports = {
   createRide,
   getRideById,
   getRidesByDestinations,
   getRides,
+  completeRide,
 };

@@ -1,3 +1,4 @@
+const camelcaseKeys = require('camelcase-keys');
 const { pool } = require('../../db/db');
 const queries = require('./usersQueries');
 
@@ -8,4 +9,11 @@ const getUser = (req, res) => {
     .catch((err) => console.error(err.stack));
 };
 
-module.exports = { getUser };
+const getRides = (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
+  pool.query(queries.getRides, [userId])
+    .then((data) => { res.status(200).json(camelcaseKeys(data.rows)); })
+    .catch((err) => console.error(err.stack));
+};
+
+module.exports = { getUser, getRides };
