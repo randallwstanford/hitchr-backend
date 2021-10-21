@@ -12,6 +12,18 @@ const createRide = `
     VALUES($1, $2, $3, $4, $5, $6)
   ) SELECT setval('rides_id_seq',(SELECT MAX(id) from rides))
 `;
+const getNameStartEndDestination = `
+  SELECT
+    id,
+    (
+      SELECT id as startD FROM destinations WHERE name = $2 limit 1
+    ),
+    (
+      SELECT id as endD FROM destinations WHERE name = $3 limit 1
+    )
+  FROM users
+  WHERE username = $1;
+`;
 
 const getRideById = `
   SELECT
@@ -29,7 +41,7 @@ const getRideById = `
       WHERE id = rides.driver_id
     ),
     (
-      SELECT json_agg(user_id) AS riders 
+      SELECT json_agg(user_id) AS riders
       FROM users_rides
       WHERE ride_id = $1
     ),
@@ -63,8 +75,8 @@ const getRides = `
       WHERE id = rides.driver_id
     ),
     (
-      SELECT json_agg(user_id) AS riders 
-      FROM users_rides 
+      SELECT json_agg(user_id) AS riders
+      FROM users_rides
       WHERE ride_id = rides.id
     ),
     (
@@ -81,4 +93,6 @@ const getRides = `
   LIMIT 10
 `;
 
-module.exports = { createRide, getRideById, getRides };
+module.exports = {
+  createRide, getRideById, getRides, getNameStartEndDestination,
+};
