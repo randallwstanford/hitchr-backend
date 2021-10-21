@@ -6,5 +6,8 @@ exports.getStartingDestQuery = `
 `;
 
 exports.getEndingDestQuery = `
-
+  SELECT DISTINCT ON (d.name) d.id, d.name
+  FROM destinations d, rides r
+  WHERE d.id = r.end_dest
+  ORDER BY d.name
 `;
