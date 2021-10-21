@@ -1,29 +1,14 @@
-const bcrypt = require('bcrypt');
 const login = require('../../controllers/auth/login');
-
-function hashPassword(password) {
-  return bcrypt.hash(password, 10).then((p) => p.slice(0, 30));
-}
 
 function AuthRouter(context) {
   const obj = {};
 
   obj.create = async (req, res) => {
-    const p1 = await hashPassword('password');
-    const p2 = await hashPassword('password');
-    console.log(p1, p2);
     const {
       username, password, isDriver, paymentMethods,
     } = req.body;
     if (username && password && isDriver !== undefined && paymentMethods) {
-      let passHash;
-      try {
-        passHash = await hashPassword(password);
-      } catch (e) {
-        console.error(e);
-        res.status(500).send();
-        return;
-      }
+      const passHash = password;
       try {
         await login.createUser(
           context.client,
@@ -46,14 +31,7 @@ function AuthRouter(context) {
   obj.login = async (req, res) => {
     const { username, password } = req.body;
     if (username && password) {
-      let passHash;
-      try {
-        passHash = await hashPassword(password);
-      } catch (e) {
-        console.error(e);
-        res.status(500).send();
-        return;
-      }
+      const passHash = password;
       let userExists;
       try {
         userExists = await login.login(

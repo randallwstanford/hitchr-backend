@@ -3,8 +3,7 @@ const { getQuery } = require('../utils/getQuery');
 
 module.exports.createUser = async (client, username, passHash, isDriver, paymentMethods) => {
   const query = await getQuery(path.join(__dirname, 'createUser.sql'));
-  const result = await client.query(query, [username, passHash, isDriver, paymentMethods]);
-  return result.rows.length === 1;
+  return client.query(query, [username, passHash, isDriver, paymentMethods]);
 };
 
 module.exports.login = async (client, username, passHash) => {
