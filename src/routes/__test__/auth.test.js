@@ -25,7 +25,6 @@ describe('Given a blank database', () => {
 
       const queries = await Promise.all(setupQueries);
       queries.forEach(async (q) => {
-        // console.log(q);
         await client.query(q);
       });
 
@@ -67,7 +66,7 @@ describe('Given a blank database', () => {
     test('Then the server responds with 201', () => {
       expect(createResponse.statusCode).toBe(201);
     });
-    xdescribe('When the same user tries to log in', () => {
+    describe('When the same user tries to log in', () => {
       let loginResponse;
       beforeEach(async () => {
         loginResponse = await supertest(server).post('/api/login').send({
