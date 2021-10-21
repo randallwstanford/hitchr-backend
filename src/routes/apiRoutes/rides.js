@@ -13,7 +13,7 @@ router.patch('/:rideId(\\d+)/complete', (req, res) => {
   res.send('set the completed timestamp for a ride given its id');
 });
 
-router.get('/', ridesController.getRides);
+router.get('/', ridesController.getRidesByDestinations);
 
 router.post('/', ridesController.postNewRide);
 
