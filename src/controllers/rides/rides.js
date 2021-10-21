@@ -19,7 +19,6 @@ const getRide = (req, res) => {
 
 const getRidesByDestinations = (req, res) => {
   const { start, end } = req.query;
-  console.log(start, end);
   const values = [start, end];
   pool.query(queries.getRidesByDestinations, values)
     .then((data) => {
