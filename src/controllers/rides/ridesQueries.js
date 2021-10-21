@@ -122,10 +122,18 @@ const completeRide = `
     RETURNING id, completed;
 `;
 
+const addRider = `
+    INSERT INTO users_rides
+    (id, user_id, ride_id)
+    VALUES
+    (((SELECT MAX(id) FROM users_rides) + 1), $1, $2);
+`;
+
 module.exports = {
   createRide,
   getRideById,
   getRidesByDestinations,
   getRides,
   completeRide,
+  addRider,
 };
