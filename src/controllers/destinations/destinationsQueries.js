@@ -1,0 +1,7 @@
+exports.getStartingDestinations = `
+
+`;
+
+exports.getEndingDestinations = `
+
+`;
