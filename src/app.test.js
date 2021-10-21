@@ -44,18 +44,4 @@ describe('Given a blank database', () => {
       expect(getResponse.body.foo).toBe('test');
     });
   });
-  describe('When a command is sent to the DB', () => {
-    beforeAll(async () => {
-      const drop = await fs.readFile(path.join(__dirname, '..', 'database', 'drop.sql'));
-      const dropQuery = drop.toString();
-      await client.query(dropQuery);
-      const load = await fs.readFile(path.join(__dirname, '..', 'database', 'schema.sql'));
-      const loadQuery = load.toString();
-      await client.query(loadQuery);
-    });
-    test('Then a command can run', async () => {
-      const users = await client.query('SELECT * FROM users');
-      expect(users.rows).toHaveLength(0);
-    });
-  });
 });

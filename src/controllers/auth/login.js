@@ -11,7 +11,7 @@ module.exports.createUser = async (username, passHash, isDriver, paymentMethods)
 module.exports.login = async (username, passHash) => {
   const query = await getQuery(path.join(__dirname, 'userExists.sql'));
   const result = await pool.query(query, [username, passHash]);
-  console.log(await pool.query('SELECT username, password FROM users;'));
-  console.log(result);
+  // console.log((await pool.query('SELECT id, username, password FROM users;')).rows);
+  console.log(result.rows);
   return result.rowCount === 1;
 };
