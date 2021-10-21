@@ -81,6 +81,18 @@ describe('Given a blank database', () => {
         expect(loginResponse.statusCode).toBe(201);
       });
     });
+    describe('When the same username tries to log in, with the wrong password', () => {
+      let loginResponse;
+      beforeEach(async () => {
+        loginResponse = await supertest(server).post('/api/login').send({
+          username: 'user',
+          password: 'WeakPassword1',
+        });
+      });
+      test('Then the server should respond with 401', () => {
+        expect(loginResponse.statusCode).toBe(401);
+      });
+    });
   });
 
   describe('when a POST is made to /login', () => {
