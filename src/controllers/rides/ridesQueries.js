@@ -148,5 +148,5 @@ module.exports = {
   getRides,
   completeRide,
   getNameStartEndDestination,
-    addRider,
+  addRider,
 };
