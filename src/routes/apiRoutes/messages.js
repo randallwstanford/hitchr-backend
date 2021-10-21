@@ -3,8 +3,8 @@ const { getMessages, postMessage } = require('../../controllers/messages/message
 
 const router = express.Router();
 
-router.get('/:userId(\\d+)', getMessages);
+router.get('/:userId(\\d+)/:recipientId(\\d+)', getMessages);
 
-router.post('/:userId(\\d+)', postMessage);
+router.post('/:recipientId(\\d+)/:userId(\\d+)', postMessage);
 
 module.exports = router;
