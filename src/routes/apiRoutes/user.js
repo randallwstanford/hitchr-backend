@@ -7,9 +7,7 @@ const router = express.Router();
 router.get('/:userId(\\d+)', usersController.getUser);
 
 // getting all rides for the current user
-router.get('/:userId(\\d+)/rides', (req, res) => {
-  res.send();
-});
+router.get('/:userId(\\d+)/rides', usersController.getRides);
 
 router.patch('/:userId(\\d+)/driverRating', (req, res) => {
   res.send('add a rating to the given userId');
