@@ -106,6 +106,14 @@ describe('Given a blank database', () => {
         expect(loginResponse.statusCode).toBe(401);
       });
     });
+    // describe('And when that users logs out with the session id', () => {
+    //   let logoutResponse;
+    //   beforeEach(async () => {
+    //     logoutResponse = await supertest(server).post('/api/lgoout').send({
+    //       session: createResponse.body.session,
+    //     });
+    //   });
+    // });
   });
 
   describe('when a POST is made to /login', () => {
