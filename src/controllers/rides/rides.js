@@ -35,12 +35,31 @@ const getRidesByDestinations = (req, res) => {
 };
 
 const postNewRide = (req, res) => {
+  console.log('here');
   const {
-    driverId, startDest, endDest, availableSeats, completed, price,
+    usernameToDriverId, startDestName, endDestName, availableSeats, completed, price,
   } = req.body;
-  const values = [driverId, startDest, endDest, availableSeats, completed, price];
-  pool.query(queries.createRide, values)
-    .then(() => res.sendStatus(201))
+  console.log(req.body);
+  pool.query(queries.getNameStartEndDestination, [usernameToDriverId, startDestName, endDestName])
+    .then((data) => {
+      console.log(data.rows[0]);
+      const values = [
+        data.rows[0].id, data.rows[0].start_dest,
+        data.rows[0].end_dest, availableSeats, completed, price,
+      ];
+      return values;
+    }).then((values) => {
+      pool.query(queries.createRide, values)
+        .then(() => { res.sendStatus(201); })
+        .catch(() => res.status(404).send('fail to create ride'));
+    })
+    .catch(() => res.status(404).send('invalid entry'));
+};
+
+const completeRide = (req, res) => {
+  const { rideId } = req.params;
+  pool.query(queries.completeRide, [rideId])
+    .then((data) => res.status(200).json(data.rows[0]))
     .catch((err) => console.error(err.stack));
 };
 
@@ -65,5 +84,6 @@ module.exports = {
   getRide,
   getRidesByDestinations,
   postNewRide,
+  completeRide,
   // searchRides,
 };
