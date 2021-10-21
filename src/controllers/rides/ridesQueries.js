@@ -16,10 +16,10 @@ const getNameStartEndDestination = `
   SELECT
     id,
     (
-      SELECT id as startD FROM destinations WHERE name = $2 limit 1
+      SELECT id as start_dest FROM destinations WHERE name = $2 limit 1
     ),
     (
-      SELECT id as endD FROM destinations WHERE name = $3 limit 1
+      SELECT id as end_dest FROM destinations WHERE name = $3 limit 1
     )
   FROM users
   WHERE username = $1;

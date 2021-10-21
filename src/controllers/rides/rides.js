@@ -37,15 +37,15 @@ const getRidesByDestinations = (req, res) => {
 const postNewRide = (req, res) => {
   console.log('here');
   const {
-    usernametodriverId, startDestName, endDestName, availableSeats, completed, price,
+    usernameToDriverId, startDestName, endDestName, availableSeats, completed, price,
   } = req.body;
   console.log(req.body);
-  pool.query(queries.getNameStartEndDestination, [usernametodriverId, startDestName, endDestName])
+  pool.query(queries.getNameStartEndDestination, [usernameToDriverId, startDestName, endDestName])
     .then((data) => {
       console.log(data.rows[0]);
       const values = [
-        data.rows[0].id, data.rows[0].startd,
-        data.rows[0].endd, availableSeats, completed, price,
+        data.rows[0].id, data.rows[0].start_dest,
+        data.rows[0].end_dest, availableSeats, completed, price,
       ];
       return values;
     }).then((values) => {
