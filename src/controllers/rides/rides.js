@@ -44,6 +44,13 @@ const postNewRide = (req, res) => {
     .catch((err) => console.error(err.stack));
 };
 
+const completeRide = (req, res) => {
+  const { rideId } = req.params;
+  pool.query(queries.completeRide, [rideId])
+    .then((data) => res.status(200).json(data.rows[0]))
+    .catch((err) => console.error(err.stack));
+};
+
 // const searchRides = (req, res) => {
 //   const { start, end } = req.query;
 //   const values = [start, end];
@@ -65,5 +72,6 @@ module.exports = {
   getRide,
   getRidesByDestinations,
   postNewRide,
+  completeRide,
   // searchRides,
 };
