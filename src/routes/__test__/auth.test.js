@@ -71,6 +71,16 @@ describe('Given a blank database', () => {
     });
     test('Then the server give back a session ID, and the user information', () => {
       expect(createResponse.body.session).toMatch(/[0-9a-f]{16}/);
+      expect(createResponse.body.user).toEqual({
+        username: 'user',
+        isDriver: false,
+        paymentMethods: [{ vendor: 'PayPal', url: 'http://paypal.com/u' }],
+        averageDriverRating: '0',
+        averageRiderRating: '0',
+        id: 1,
+        totalDriverRatings: 0,
+        totalRiderRatings: 0,
+      });
     });
     describe('When the same user tries to log in', () => {
       let loginResponse;

@@ -1,3 +1,5 @@
+const camelcaseKeys = require('camelcase-keys');
+
 const login = require('../../controllers/auth/login');
 
 function makeSession() {
@@ -6,7 +8,6 @@ function makeSession() {
   }
   const overSession = partialSession() + partialSession();
   const session = overSession.slice(0, 16);
-  console.log(session);
   return session;
 }
 
@@ -20,20 +21,24 @@ function AuthRouter(context) {
     } = req.body;
     if (username && password && isDriver !== undefined && paymentMethods) {
       const passHash = password;
+      let userID;
       try {
-        await login.createUser(
+        const result = await login.createUser(
           context.client,
           username,
           passHash,
           isDriver,
           JSON.stringify(paymentMethods),
         );
+        console.log(result);
+        userID = result.rows[0].id;
       } catch (e) {
         console.error(e);
         res.status(500).send();
         return;
       }
-      res.status(201).send({ session: makeSession() });
+      const user = await login.getUser(context.client, userID);
+      res.status(201).send({ session: makeSession(), user: camelcaseKeys(user) });
     } else {
       res.status(400).send();
     }
