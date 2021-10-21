@@ -46,3 +46,11 @@ CREATE TABLE users_rides (
   ride_id INTEGER,
   FOREIGN KEY (ride_id) REFERENCES rides(id)
 );
+
+SELECT setval('messages_id_seq', (SELECT MAX(id) FROM messages));
+
+/* COPY users from '/home/gaoy11/hackreactor/hitchr-backend/csv/users.csv' DELIMITER ',' CSV HEADER;
+COPY destinations from '/home/gaoy11/hackreactor/hitchr-backend/csv/destinations.csv' DELIMITER ',' CSV HEADER;
+COPY rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/rides.csv' DELIMITER ',' CSV HEADER;
+COPY messages from '/home/gaoy11/hackreactor/hitchr-backend/csv/messages.csv' DELIMITER ',' CSV HEADER;
+COPY users_rides from '/home/gaoy11/hackreactor/hitchr-backend/csv/users_rides.csv' DELIMITER ',' CSV HEADER; */
