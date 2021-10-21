@@ -69,6 +69,9 @@ describe('Given a blank database', () => {
     test('Then the server responds with 201', () => {
       expect(createResponse.statusCode).toBe(201);
     });
+    test('Then the server give back a session ID, and the user information', () => {
+      expect(createResponse.body.session).toMatch(/[0-9a-f]{16}/);
+    });
     describe('When the same user tries to log in', () => {
       let loginResponse;
       beforeEach(async () => {

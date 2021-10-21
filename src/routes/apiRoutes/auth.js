@@ -1,6 +1,17 @@
 const login = require('../../controllers/auth/login');
 
+function makeSession() {
+  function partialSession() {
+    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16);
+  }
+  const overSession = partialSession() + partialSession();
+  const session = overSession.slice(0, 16);
+  console.log(session);
+  return session;
+}
+
 function AuthRouter(context) {
+  makeSession();
   const obj = {};
 
   obj.create = async (req, res) => {
@@ -22,7 +33,7 @@ function AuthRouter(context) {
         res.status(500).send();
         return;
       }
-      res.status(201).send();
+      res.status(201).send({ session: makeSession() });
     } else {
       res.status(400).send();
     }
