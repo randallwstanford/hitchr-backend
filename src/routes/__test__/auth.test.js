@@ -1,6 +1,7 @@
 const supertest = require('supertest');
 const path = require('path');
 
+const Context = require('../../dependencies/context');
 const env = require('../../db/env');
 const { dbPool } = require('../../db/db');
 const App = require('../../app');
@@ -29,8 +30,10 @@ describe('Given a blank database', () => {
       });
 
       server = App(
-        5001,
-        client,
+        Context(
+          client,
+          5001,
+        ),
       );
       done();
     })();

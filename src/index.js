@@ -1,3 +1,5 @@
 const App = require('./app');
+const Context = require('./dependencies/context');
+const { pool } = require('./db/db');
 
-App(5000);
+App(Context(pool, 5000));
