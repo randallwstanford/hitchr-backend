@@ -1,3 +1,4 @@
+const camelcaseKeys = require('camelcase-keys');
 const { pool } = require('../../db/db');
 const queries = require('./ridesQueries');
 
@@ -15,8 +16,11 @@ const getRide = (req, res) => {
     .catch((err) => console.error(err.stack));
 };
 
-const getRides = (req, res) => {
-  pool.query(queries.getRides)
+const getRidesByDestinations = (req, res) => {
+  const { start, end } = req.query;
+  console.log(start, end);
+  const values = [start, end];
+  pool.query(queries.getRidesByDestinations, values)
     .then((data) => {
       const alteredData = data;
       for (let i = 0; i < alteredData.rows.length; i += 1) {
@@ -26,7 +30,7 @@ const getRides = (req, res) => {
       }
       return alteredData;
     })
-    .then((data) => res.status(200).json(data.rows))
+    .then((data) => res.status(200).json(camelcaseKeys(data.rows)))
     .catch((err) => console.error(err.stack));
 };
 
@@ -40,4 +44,34 @@ const postNewRide = (req, res) => {
     .catch((err) => console.error(err.stack));
 };
 
-module.exports = { getRide, getRides, postNewRide };
+const completeRide = (req, res) => {
+  const { rideId } = req.params;
+  pool.query(queries.completeRide, [rideId])
+    .then((data) => res.status(200).json(data.rows[0]))
+    .catch((err) => console.error(err.stack));
+};
+
+// const searchRides = (req, res) => {
+//   const { start, end } = req.query;
+//   const values = [start, end];
+//   pool.query(queries.searchRides)
+//     .then((data) => {
+//       const alteredData = data;
+//       for (let i = 0; i < alteredData.rows.length; i += 1) {
+//         let priceData = alteredData.rows[i].price / 100;
+//         priceData = priceData.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+//         alteredData.rows[i].price = priceData;
+//       }
+//       return alteredData;
+//     })
+//     .then((data) => res.status(200).json(data.rows))
+//     .catch((err) => console.error(err.stack));
+// };
+
+module.exports = {
+  getRide,
+  getRidesByDestinations,
+  postNewRide,
+  completeRide,
+  // searchRides,
+};
