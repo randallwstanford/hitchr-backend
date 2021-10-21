@@ -59,6 +59,40 @@ const getRideById = `
   WHERE id = $1
 `;
 
+const getRidesByDestinations = `
+SELECT
+    id AS ride_id,
+    available_seats,
+    completed,
+    price,
+    (
+      SELECT json_build_object(
+        'id', id,
+        'username', username,
+        'rating', average_driver_rating
+      ) AS driver
+      FROM users
+      WHERE id = rides.driver_id
+    ),
+    (
+      SELECT json_agg(user_id) AS riders
+      FROM users_rides
+      WHERE ride_id = rides.id
+    ),
+    (
+      SELECT name AS start_dest
+      FROM destinations
+      WHERE id = rides.start_dest
+    ),
+    (
+      SELECT name AS end_dest
+      FROM destinations
+      WHERE id = rides.end_dest
+    )
+  FROM rides
+  WHERE start_dest = $1 AND end_dest = $2
+`;
+
 const getRides = `
   SELECT
     id AS ride_id,
@@ -93,6 +127,18 @@ const getRides = `
   LIMIT 10
 `;
 
+const completeRide = `
+    UPDATE rides SET
+    completed = current_timestamp(0)
+    WHERE id=$1
+    RETURNING id, completed;
+`;
+
 module.exports = {
-  createRide, getRideById, getRides, getNameStartEndDestination,
+  createRide,
+  getRideById,
+  getRidesByDestinations,
+  getRides,
+  completeRide,
+  getNameStartEndDestination,
 };
