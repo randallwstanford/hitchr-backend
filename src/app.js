@@ -16,6 +16,13 @@ function App(context) {
   app.use(express.json());
   app.use(cors());
 
+  app.use((req, res, next) => {
+    if (process.env.NODE_ENV !== 'test') {
+      console.log(`Got ${req.method} on ${req.url}`);
+    }
+    next();
+  });
+
   app.use('/api', apiRouter(context));
 
   return app.listen(context.port, () => {
