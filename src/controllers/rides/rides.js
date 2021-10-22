@@ -1,4 +1,5 @@
 const camelcaseKeys = require('camelcase-keys');
+const snakecaseKeys = require('snakecase-keys');
 const { pool } = require('../../db/db');
 const queries = require('./ridesQueries');
 
@@ -18,7 +19,6 @@ const getRide = (req, res) => {
 
 const getRidesByDestinations = (req, res) => {
   const { start, end } = req.query;
-  console.log(start, end);
   const values = [start, end];
   pool.query(queries.getRidesByDestinations, values)
     .then((data) => {
@@ -121,6 +121,13 @@ const completeRide = (req, res) => {
     .catch((err) => console.error(err.stack));
 };
 
+const addRider = (req, res) => {
+  const { userId, rideId } = req.body;
+  pool.query(queries.addRider, snakecaseKeys([userId, rideId]))
+    .then((data) => res.status(200).json(data.rows[0]))
+    .catch((err) => console.error(err.stack));
+};
+
 // const searchRides = (req, res) => {
 //   const { start, end } = req.query;
 //   const values = [start, end];
@@ -143,5 +150,6 @@ module.exports = {
   getRidesByDestinations,
   postNewRide,
   completeRide,
+  addRider,
   // searchRides,
 };
