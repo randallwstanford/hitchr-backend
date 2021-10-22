@@ -83,6 +83,10 @@ describe('Given a blank database', () => {
       test('Then the server should respond with 201', () => {
         expect(loginResponse.statusCode).toBe(201);
       });
+      test('Then the server should give the user information', () => {
+        expect(loginResponse.body).toHaveProperty('sessionId');
+        expect(loginResponse.body.username).toBe('user');
+      });
     });
     describe('When the same username tries to log in, with the wrong password', () => {
       let loginResponse;

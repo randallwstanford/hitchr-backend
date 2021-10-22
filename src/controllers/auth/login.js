@@ -9,6 +9,17 @@ module.exports.createUser = async (client, username, passHash, isDriver, payment
 module.exports.login = async (client, username, passHash) => {
   const query = await getQuery(path.join(__dirname, 'userExists.sql'));
   const result = await client.query(query, [username, passHash]);
-  console.log('count', (await client.query('SELECT id FROM users;')).rowCount);
   return result.rowCount >= 1;
+};
+
+module.exports.getUser = async (client, username, passHash) => {
+  const query = await getQuery(path.join(__dirname, 'getUser.sql'));
+  const result = await client.query(query, [username, passHash]);
+  return result.rows[0];
+};
+
+module.exports.getUserById = async (client, id) => {
+  const query = await getQuery(path.join(__dirname, 'getUserById.sql'));
+  const result = await client.query(query, [id]);
+  return result.rows[0];
 };

@@ -1,3 +1,4 @@
+const camelcaseKeys = require('camelcase-keys');
 const login = require('../../controllers/auth/login');
 
 function makeSession() {
@@ -6,7 +7,6 @@ function makeSession() {
   }
   const overSession = partialSession() + partialSession();
   const session = overSession.slice(0, 16);
-  console.log(session);
   return session;
 }
 
@@ -20,8 +20,9 @@ function AuthRouter(context) {
     } = req.body;
     if (username && password && isDriver !== undefined && paymentMethods) {
       const passHash = password;
+      let result;
       try {
-        await login.createUser(
+        result = await login.createUser(
           context.client,
           username,
           passHash,
@@ -33,7 +34,10 @@ function AuthRouter(context) {
         res.status(500).send();
         return;
       }
-      res.status(201).send({ session: makeSession() });
+      const userId = result.rows[0]?.id;
+      const user = await login.getUserById(context.client, userId);
+      delete user.password;
+      res.status(201).send({ session: makeSession(), ...(camelcaseKeys(user)) });
     } else {
       res.status(400).send();
     }
@@ -43,9 +47,9 @@ function AuthRouter(context) {
     const { username, password } = req.body;
     if (username && password) {
       const passHash = password;
-      let userExists;
+      let user;
       try {
-        userExists = await login.login(
+        user = await login.getUser(
           context.client,
           username,
           passHash,
@@ -55,8 +59,10 @@ function AuthRouter(context) {
         res.status(500).send();
         return;
       }
-      if (userExists) {
-        res.status(201).send();
+      if (user) {
+        const result = { sessionId: makeSession(), ...(camelcaseKeys(user)) };
+        delete result.password;
+        res.status(201).send(result);
       } else {
         res.status(401).send();
       }
