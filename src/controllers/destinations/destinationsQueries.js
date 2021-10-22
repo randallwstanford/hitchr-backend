@@ -11,3 +11,12 @@ exports.getEndingDestQuery = `
   WHERE d.id = r.end_dest
   ORDER BY d.name
 `;
+
+exports.getDestinationFromStartQuery = `
+  SELECT destinations.name 
+  FROM rides
+  INNER JOIN destinations
+  ON rides.end_dest = destinations.id
+  WHERE start_dest = $1
+  GROUP BY destinations.name;
+`;
