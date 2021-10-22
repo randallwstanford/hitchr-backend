@@ -70,12 +70,12 @@ const postNewRide = async (req, res) => {
     }).catch(() => res.status(404).send('invalid entry'));
 
   const newSid = results[1] === null ? await pool.query(
-    queries.createDestination, [startDestName, '(0.01, 0.01)'],
+    queries.createDestination, [startDestName],
   )
     .then((data) => parseInt(data.rows[0].setval, 10) + 1)
     .catch((error) => { console.log(error); res.status(404).send('unable to create a new start destination'); }) : null;
 
-  const newEid = results[2] === null ? await pool.query(queries.createDestination, [endDestName, '(0.01, 0.01)'])
+  const newEid = results[2] === null ? await pool.query(queries.createDestination, [endDestName])
     .then((data) => parseInt(data.rows[0].setval, 10) + 1)
     .catch((error) => { console.log(error); res.status(404).send('unable to create a new end destination'); }) : null;
 

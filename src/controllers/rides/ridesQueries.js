@@ -25,8 +25,7 @@ const createDestination = `
   with updated as
   (
   INSERT INTO destinations(
-    name,
-    coordinate
+    name
     )
     VALUES($1, $2)
   ) SELECT setval('destinations_id_seq',(SELECT MAX(id) from destinations))
