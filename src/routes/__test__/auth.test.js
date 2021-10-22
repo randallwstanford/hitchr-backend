@@ -70,7 +70,7 @@ describe('Given a blank database', () => {
       expect(createResponse.statusCode).toBe(201);
     });
     test('Then the server give back a session ID, and the user information', () => {
-      expect(createResponse.body.session).toMatch(/[0-9a-f]{16}/);
+      expect(createResponse.body.sessionId).toMatch(/[0-9a-f]{16}/);
     });
     describe('When the same user tries to log in', () => {
       let loginResponse;

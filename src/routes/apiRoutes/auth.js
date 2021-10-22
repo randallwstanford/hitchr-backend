@@ -37,7 +37,7 @@ function AuthRouter(context) {
       const userId = result.rows[0]?.id;
       const user = await login.getUserById(context.client, userId);
       delete user.password;
-      res.status(201).send({ session: makeSession(), ...(camelcaseKeys(user)) });
+      res.status(201).send({ sessionId: makeSession(), ...(camelcaseKeys(user)) });
     } else {
       res.status(400).send();
     }
