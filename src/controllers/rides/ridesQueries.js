@@ -97,6 +97,7 @@ SELECT
     )
   FROM rides
   WHERE start_dest = $1 AND end_dest = $2
+  AND completed IS NULL;
 `;
 
 const getRides = `
