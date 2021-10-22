@@ -12,8 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE destinations (
   id BIGSERIAL NOT NULL PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  coordinate point NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE rides (
