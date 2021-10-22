@@ -97,7 +97,7 @@ SELECT
       WHERE id = rides.end_dest
     )
   FROM rides
-  WHERE start_dest = 2 AND end_dest = 3
+  WHERE start_dest = $1 AND end_dest = $2
   AND completed IS NULL;
 `;
 
