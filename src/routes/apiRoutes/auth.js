@@ -1,3 +1,4 @@
+const camelcaseKeys = require('camelcase-keys');
 const login = require('../../controllers/auth/login');
 
 function makeSession() {
@@ -6,7 +7,6 @@ function makeSession() {
   }
   const overSession = partialSession() + partialSession();
   const session = overSession.slice(0, 16);
-  console.log(session);
   return session;
 }
 
@@ -43,9 +43,9 @@ function AuthRouter(context) {
     const { username, password } = req.body;
     if (username && password) {
       const passHash = password;
-      let userExists;
+      let user;
       try {
-        userExists = await login.login(
+        user = await login.getUser(
           context.client,
           username,
           passHash,
@@ -55,8 +55,8 @@ function AuthRouter(context) {
         res.status(500).send();
         return;
       }
-      if (userExists) {
-        res.status(201).send();
+      if (user) {
+        res.status(201).send({ sessionId: makeSession(), ...(camelcaseKeys(user)) });
       } else {
         res.status(401).send();
       }
