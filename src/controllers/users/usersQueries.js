@@ -27,7 +27,7 @@ const getRides = `
         WHERE ride_id=rides.id
         GROUP BY user_id
         ORDER BY user_id
-     ) AS USERS)
+     ) AS riders)
   FROM rides
   WHERE driver_id = $1;
   `;
@@ -59,7 +59,7 @@ const getRidesAsRider = `
         WHERE ride_id=rides.id
         GROUP BY user_id
         ORDER BY user_id
-     ) AS users)
+     ) AS riders)
   FROM users_rides 
   LEFT JOIN rides
   on users_rides.ride_id=rides.id
