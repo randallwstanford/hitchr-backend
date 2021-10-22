@@ -26,8 +26,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.destinations (
     id bigint NOT NULL,
-    name character varying(50) NOT NULL,
-    coordinate point NOT NULL
+    name character varying(50) NOT NULL
 );
 
 
@@ -245,56 +244,12 @@ ALTER TABLE ONLY public.users_rides ALTER COLUMN id SET DEFAULT nextval('public.
 -- Data for Name: destinations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.destinations (id, name, coordinate) FROM stdin;
-1	Middle River	(39.33427,-76.43941)
-2	Belle Glade	(26.68451,-80.66756)
-3	Searcy	(35.25064,-91.73625)
-4	Tupelo	(34.25807,-88.70464)
-5	Lebanon	(39.43534,-84.20299)
-6	Rosemount	(44.73941,-93.12577)
-7	Troutdale	(45.53929,-122.38731)
-8	Sunnyside	(46.32374,-120.00865)
-9	Morningside Heights	(40.81,-73.9625)
-10	Yonkers	(40.93121,-73.89875)
-11	Opportunity	(47.64995,-117.23991)
-12	Ken Caryl	(39.57582,-105.11221)
-13	Palestine	(31.76212,-95.63079)
-14	Boston	(42.35843,-71.05977)
-15	Camarillo	(34.21639,-119.0376)
-16	Sun City Center	(27.71809,-82.35176)
-17	Greenville	(33.41012,-91.06177)
-18	Rutland	(43.61062,-72.97261)
-19	Hutchinson	(38.06084,-97.92977)
-20	Sun City Center	(27.71809,-82.35176)
-21	Milledgeville	(33.08014,-83.2321)
-22	Gilbert	(33.35283,-111.78903)
-23	Kent	(47.38093,-122.23484)
-24	Morningside Heights	(40.81,-73.9625)
-25	Tupelo	(34.25807,-88.70464)
-26	Sun City Center	(27.71809,-82.35176)
-27	Waverly	(42.7392,-84.62081)
-28	Yonkers	(40.93121,-73.89875)
-29	Fairview Heights	(38.58894,-89.99038)
-30	Toledo	(41.66394,-83.55521)
-31	Hutto	(30.5427,-97.54667)
-32	Pottstown	(40.24537,-75.64963)
-33	Chillum	(38.96372,-76.99081)
-34	Norco	(33.93113,-117.54866)
-35	Boston	(42.35843,-71.05977)
-36	Tyler	(32.35126,-95.30106)
-37	Brighton Beach	(40.57788,-73.95958)
-38	Pleasant Prairie	(42.55308,-87.93341)
-39	Palm Desert	(33.72255,-116.37697)
-40	Evergreen Park	(41.72059,-87.70172)
-41	Port Huron	(42.97086,-82.42491)
-42	Redding	(40.58654,-122.39168)
-43	Hueytown	(33.45122,-86.99666)
-44	Fresno	(29.53885,-95.44744)
-45	Redding	(40.58654,-122.39168)
-46	Hutchinson	(38.06084,-97.92977)
-47	Venice	(27.09978,-82.45426)
-48	Aloha	(45.49428,-122.86705)
-49	West Des Moines	(41.57721,-93.71133)
+COPY public.destinations (id, name) FROM stdin;
+1	Boulder, CO
+2	Colorado Springs, CO
+3	Denver, CO
+4	Fort Collins, CO
+5	Steamboat Springs, CO
 \.
 
 
@@ -303,55 +258,55 @@ COPY public.destinations (id, name, coordinate) FROM stdin;
 --
 
 COPY public.messages (id, text, sender_id, recipient_id, "timestamp") FROM stdin;
-1	One expert happy return firm senior difficult hundred. Ahead get lead free learn glass several hundred. Result book senior grow training them.	21	3	2021-09-30 06:36:02
-2	Ever go deal large analysis hand. Husband American prevent dinner Congress.	43	47	2021-10-13 10:33:01
-3	Kid stop call among itself. Large organization born boy job weight them. Similar civil serve many.	37	21	2021-10-07 11:15:56
-4	Step teacher unit course suffer box recognize. Back stay store difficult notice remain boy.	3	2	2021-09-29 05:13:14
-5	Truth ahead cultural of so public. Enough within language Mr here understand student president.\nMain indeed threat charge material professional current. Senior must remember deep war miss.	16	15	2021-09-30 07:40:59
-6	Leave ten star right character why cover. Whatever work media discuss heart public. Business floor agree information.\nRange whether answer some group. Case include trip.	45	36	2021-10-13 16:10:16
-7	Energy region she. Lose set check perhaps coach.\nSpecific him camera spring. Parent discuss fund style difficult guess writer book.	9	37	2021-10-11 10:12:18
-8	Job level about along actually whose somebody. Office resource several maintain rule. Today recognize strategy dark president history health.	8	18	2021-09-30 23:54:32
-9	Hard direction star it today finish environmental. Still discussion arrive religious.\nPersonal wife on. Girl actually reflect nice which institution. Spring run difficult citizen law.	28	36	2021-10-13 05:23:10
-10	Population much risk increase. Protect defense may statement treatment stock child. Option fund since glass try various.\nKeep property movie success section speech whole. Knowledge vote great rule.	16	9	2021-09-30 07:56:06
-11	Line show back game others approach keep. Sport wait garden often. Arrive whatever total speak sort which.\nMaintain billion few cover condition would report.	10	19	2021-09-30 09:29:44
-12	Turn history blue remain price exactly method. Account them land.\nWe north reduce remember. Plant save interest war five so bill.	5	43	2021-10-08 03:40:47
-13	Education discuss office class point culture have. Full fear continue career win early machine. Or glass his.\nData theory glass might. Condition apply rest American benefit member major.	22	26	2021-10-11 02:14:02
-14	Probably city total writer against type. Generation million artist not interview pass.\nDay television personal reduce office mean. Source professor player. Law game around.	26	32	2021-10-02 18:10:41
-15	Quickly employee accept follow. Into your total.\nFoot kitchen decision. Teacher yet very leader indicate baby. Institution most base detail establish. Measure amount without five.	16	43	2021-09-27 22:19:57
-16	Animal beat across value within second bag. System site wish public arrive keep perform give.\nIssue collection government young statement condition more. Central experience above public.	9	1	2021-10-06 19:30:18
-17	Realize total well. Rich much various. Assume he place upon game. Somebody build other garden finish television.\nThem cultural month individual. Could strategy trial information voice top.	35	12	2021-10-03 06:19:36
-18	Easy attack case behavior. Century expect course agree affect south executive. But opportunity staff.	43	49	2021-10-07 13:26:03
-19	History into list western. Expert compare mother tend. News recognize to task law medical rest.	3	35	2021-10-02 08:19:46
-20	See everything letter college forget. Use me thought. Mention machine clearly. Knowledge forget husband degree foreign international late.	25	19	2021-10-16 13:52:22
-21	Character fear themselves able fish now above sea. Decision current several practice.	9	41	2021-10-13 08:04:55
-22	Head smile go ask change six fire instead. Rest think in amount Congress music guy.	34	19	2021-10-06 01:29:51
-23	Here leg work network anyone ready. Bed responsibility network. Very series sell street.	46	2	2021-10-13 03:17:05
-24	Before modern upon tree Republican. However staff special base. Table push although three offer.	42	4	2021-10-15 06:35:58
-25	Realize energy another and compare. Husband together health environmental yeah finish Mrs.	11	16	2021-10-13 20:58:59
-26	Difficult student blue resource matter bank simple. Prepare first person.\nBest after system dog energy. Reason source instead stage describe recognize event have. A point special require.	9	35	2021-09-28 17:50:41
-27	Listen simple dog red. Bar way miss help pretty foreign.\nCity what bad still election. Know federal act west. Gun memory others order there especially serve.\nAgency leg sister west quite.	42	3	2021-09-28 12:47:40
-28	Radio window place hit serious image seat. Push offer tough health. Concern if do father.	44	4	2021-10-06 09:32:27
-29	May sing ok bag. Knowledge must before scene moment environment.\nFish property exactly with. Behavior college while bag perform. Product so speech certain.	18	4	2021-10-10 18:27:55
-30	Break couple mouth possible. Now myself reality argue thing seat six. Find son sing.\nExactly professor central religious that quite. Second eat top music may sign.	6	27	2021-10-04 06:06:27
-31	Certain still challenge head discussion few project. Reveal suffer rest hair computer. Performance floor party like trip us decide.	19	26	2021-10-07 01:56:11
-32	Face child public bag partner themselves. Through seek imagine fly themselves for production. Future city would way live tend several.	26	49	2021-10-01 20:19:13
-33	Travel wonder church paper much firm. Unit herself environmental tax actually he high see.\nHer military political prevent. Research first body throughout.	11	5	2021-09-26 06:55:54
-34	Glass amount card standard energy moment exactly quality. Training stuff while. Compare instead staff minute.	28	38	2021-09-26 08:24:38
-35	Individual whatever industry four room four treatment word. During program network lose. Thus car partner per.	33	6	2021-10-12 01:20:24
-36	Deal its senior. Fish stock wall music pretty policy reveal.\nCup miss government catch resource. Explain that face student air attention nation fire.	47	19	2021-09-29 12:55:45
-37	Good cut letter environmental least. Interest lay line several view late. Pretty far law your interview.	27	9	2021-10-14 02:12:16
-38	Expect project option town down candidate full keep. Agreement marriage specific night mention require. Western page want out just left speak after.	28	17	2021-10-04 02:53:46
-39	Edge this employee increase. Year threat question main then growth career. Over generation particularly according.	45	44	2021-09-26 20:46:14
-40	Buy past even cup popular fine court room. Above question six heavy me various ahead continue. Represent to discuss nation people.	8	9	2021-10-13 19:16:16
-41	Treat local for general sound whose church. Any pretty international war general plan collection argue.\nWord begin base western small against just yard. Course data form.	19	34	2021-10-07 02:46:21
-42	Listen scientist type expect state. Air character blue central.\nOpen find enjoy attack. Catch itself end up movie open our.	8	37	2021-09-28 07:47:17
-43	Cut industry true ok ten. Back bank response cause each feeling. Environment development well however. Direction oil southern central nothing director.	49	23	2021-10-11 12:45:21
-44	Money increase these tend entire same require. Individual language girl church early result no. Improve model health small subject may.	14	34	2021-10-14 02:25:36
-45	Main able yourself strategy back cold. Ten hit trouble official much read nearly. Last rise before seat more kitchen.\nRate want early point. Office always star.	12	23	2021-10-13 05:05:28
-46	Test official under interview structure Congress. Meeting protect close several dog.\nThis couple effect hard near.	6	30	2021-09-27 22:40:14
-47	Article seem owner tree thought attack morning. Interest prove before necessary population south.\nEconomy poor health officer interest heart. Life size kid affect some. Beautiful stock happen new.	35	15	2021-10-01 17:06:57
-48	Realize sometimes certainly lawyer hear. Whom former body reason indicate to.\nLarge system marriage toward prepare production hope remember. Could sing spring may.	48	37	2021-10-08 04:25:48
-49	Three space catch purpose forget. Behavior record line specific billion use different.\nMarriage reveal market huge front. Song yeah hear then. Financial cell look despite bad party.	36	29	2021-10-08 09:03:16
+1	Change purpose control least. Again can year put ground while commercial.\nSpace fine stop rock shake lot. Article film look lot air course. Method do finish building affect.	7	14	2021-10-16 01:25:13
+2	Behind south woman pick. Fill experience position author continue. Window far able population I physical us.	25	43	2021-10-13 11:02:33
+3	Loss summer near practice Mrs. Politics style how nice but. Size industry enjoy daughter.\nOrganization Mr likely table beat rise increase. Miss reveal majority these make whole.	12	10	2021-10-02 18:06:33
+4	Doctor former still close. Resource miss rich message six.\nSide lot interesting along book try professor. Game share score case. Ever style world marriage how wall.	8	42	2021-10-18 12:10:13
+5	At child suffer my enter today alone phone. Environment top system return wish myself.	26	35	2021-10-08 15:51:26
+6	Together floor region hair himself hold our. Such along scientist investment course world including. Recognize world whose you.	42	47	2021-10-17 01:29:27
+7	Recognize establish energy resource certainly. Those everyone attorney affect.\nBlue ability event stock kitchen current especially. Drug majority cut leg himself.	16	47	2021-10-18 10:27:59
+8	Degree thus myself play while peace. Billion turn money recognize this newspaper produce.\nDemocrat score he enter knowledge family out. Cause add matter table just.	43	12	2021-10-19 00:50:47
+9	Together option seem apply. Particularly account nearly character speak.\nMuch section to. Within carry guy tough rise indicate. Leader result spring instead think foreign. Treatment stop mother.	5	13	2021-10-21 23:20:03
+10	Phone officer high. Great space admit really. American military job produce his vote.	25	8	2021-10-17 12:30:55
+11	Animal result challenge mission despite reason rule maintain. Easy way past investment. Ahead stuff example how politics charge.	22	34	2021-10-12 21:13:08
+12	Rest pass bit Democrat. Break community one such professional body house.\nTough give former read almost real. Remember particular owner involve. Despite something character those four call before.	11	26	2021-10-18 07:04:04
+13	Chance century fill trouble without strong break. Hour game enjoy. Require yourself seem collection system late.\nCamera quite quite memory. Meet likely notice resource also truth.	13	6	2021-10-05 09:42:26
+14	Size laugh word move everyone sea relate. First order suffer six. Game read big stop act minute.	29	43	2021-10-12 09:18:28
+15	Minute reveal kitchen team deal. Imagine produce ten. Summer need it actually voice beyond see.\nGrow wife clear available. Cover him hard many building. Deal risk data network seem into special.	16	23	2021-10-12 12:46:03
+16	Down stand door door stop party. More air democratic you.\nOffice computer save special authority. Control drug strong but eye together firm apply. Hear low college toward time seem.	38	45	2021-10-17 00:06:18
+17	Large leader although second agree enough.\nGarden sport trouble show lead sometimes water peace. Yard tend score movie. Read likely yeah ground believe author owner.	35	26	2021-10-12 09:02:59
+18	Economic happen what hotel camera my bit name. Player the American year few stuff pretty. Against save see ahead.\nOption visit how fill. Morning south girl. Goal back new federal star.	22	1	2021-10-03 11:22:16
+19	Follow war for. Capital audience consumer company show too final.	24	15	2021-10-13 08:48:36
+20	Face partner soon Democrat trade. Institution admit again thank.\nChallenge vote answer space. Apply born ground sit. Develop tough onto be south task rather.	34	3	2021-10-10 06:46:53
+21	Simply per Democrat top fill water. Do man could talk international democratic physical. Figure born back challenge politics street from wife.	11	34	2021-10-04 14:13:00
+22	Pay general single child oil home Congress. Throughout trial see new keep. Level free trial where discuss simple paper.\nMain some management age parent four.	46	28	2021-10-19 07:44:32
+23	Start bank accept. Throw family commercial set door force. Significant must half true.\nRemain else under personal no in. Assume quite ball individual serve herself much.	43	11	2021-10-13 05:15:35
+24	Fast local page this. Available up clear style.\nThey certainly training could fact. Safe south million make work prove defense.\nSouthern bit heavy its. Cold senior rich wide.	19	3	2021-10-13 00:17:30
+25	Note conference past voice without within morning. Look hit still machine house. Letter wide general author.\nIt detail hope soon. Reason respond animal film above green recently lot.	14	37	2021-10-10 17:25:43
+26	Kind easy card resource the inside. Hand happy check market order. Return high hour low build data data nature. Standard purpose fine itself note beat purpose.	5	4	2021-10-06 00:27:12
+27	Dark job team TV. Single majority project figure someone which. Use thing all enough.\nFrom whose growth success. Drive main spring man team half. Already wall walk chair.	45	29	2021-10-07 21:38:23
+28	Drug security kind one answer yard. Behavior analysis every admit group result. Account day might same you then.\nSeven dark process region. Price cultural smile front part.	5	45	2021-10-20 09:29:00
+29	Entire difference source history. Price pretty chair include.\nBag else cause direction real piece consider color.\nChild in never write. Admit lead change away.	41	13	2021-10-08 08:57:36
+30	Day despite thousand bag heavy care child.\nPerform spend draw set never. Win appear Mr time out number. Wear speech official key with save.	27	12	2021-10-03 07:13:16
+31	Cold TV hope fish. Least debate front cost sense owner building partner.	18	6	2021-10-09 21:17:38
+32	Already but young. Staff despite value politics tend. Kind less interview smile.\nParty painting soldier trade take watch right arrive. Stand opportunity south word.	40	31	2021-10-20 04:58:02
+33	Training loss act maintain still. Size raise century.\nSpend all miss short true also performance allow. Each price wife enjoy.\nDark movie remember Congress than develop education.	38	49	2021-10-16 09:00:46
+34	Big throw report color machine fly. Front expect rest than.	9	24	2021-10-10 16:42:50
+35	Movie expect its already stop civil. Game month style high together really. Its yourself voice person risk.\nPrice field computer many cold my. Item remain church.\nNature cultural skill season.	33	4	2021-10-03 16:30:12
+36	Left director water thank service small day. To sing mention than place per owner. Charge car great political suggest fill.	25	33	2021-10-03 02:46:42
+37	Type strategy attorney. Only institution away year. Idea cultural my watch whatever another scientist.	18	25	2021-10-08 02:42:19
+38	Everything song evening second more article. Suddenly land night herself term.\nMust experience image through human. History whatever think I.	25	49	2021-10-17 23:47:02
+39	Organization wear first phone article on. As view director name first protect.	25	10	2021-10-14 00:27:40
+40	Indicate dream debate door push side. Miss specific soldier their season present end.\nPerform treat sell. Draw because one sea suggest sometimes. Color walk central front throughout star.	16	15	2021-10-01 23:28:26
+41	Rich everybody think include impact reduce. System send television project year common. With catch interest consumer. Network since cold turn heavy measure.	1	31	2021-10-08 13:37:25
+42	Deal rise first itself fund level travel. Standard the possible medical middle. Born federal your sign foot. Consumer determine first discussion.	21	49	2021-10-16 11:57:17
+43	Memory foreign so PM boy say realize age. Play decade clear policy decide. Than me customer who.\nProfessional man such miss usually success help. Movie word market want left yourself agency.	36	32	2021-10-10 05:26:26
+44	Detail west food truth eight. Computer action radio speech seven system special north. Season career matter.	17	45	2021-10-21 12:29:04
+45	Media around ten partner should woman say. Ahead real often executive. Song industry message tonight check north risk.	34	48	2021-10-04 15:50:18
+46	Part explain team edge least.\nKeep Mrs treatment head audience. Space as Republican front degree central. Big your standard tell charge safe glass.	23	18	2021-10-19 20:37:19
+47	Fast election also base need particularly.\nFeel one security attention public. Bag over like health professor. Southern movie right draw receive.	12	40	2021-10-10 15:16:32
+48	Small he everyone kitchen read it identify view. Mean stop different enjoy international girl choice.\nSeem stuff day assume herself. Ground sing employee moment near air.	9	49	2021-10-16 13:48:01
+49	Lose by senior really weight soon. Process imagine general section area mind first full. Wife nice again recognize.\nSign maybe impact all. Not note everyone too. Deep any PM executive west.	44	8	2021-10-07 23:59:13
 \.
 
 
@@ -360,55 +315,55 @@ COPY public.messages (id, text, sender_id, recipient_id, "timestamp") FROM stdin
 --
 
 COPY public.rides (id, driver_id, start_dest, end_dest, available_seats, completed, price) FROM stdin;
-1	1	34	26	1	2021-09-29 11:15:11	153
-2	2	13	38	3	2021-09-29 04:12:47	435
-3	3	1	6	3	2021-10-09 18:26:47	20
-4	4	33	16	1	2021-10-05 12:05:05	123
-5	5	35	15	1	2021-10-16 02:34:32	356
-6	6	33	7	2	2021-10-08 18:38:40	17
-7	7	36	9	1	2021-10-13 08:01:09	140
-8	8	33	23	1	2021-10-01 17:52:33	257
-9	9	20	4	3	2021-09-28 04:01:12	340
-10	10	27	11	5	2021-10-04 17:22:21	116
-11	11	1	26	5	2021-10-12 20:18:16	413
-12	12	36	23	3	2021-10-03 05:58:01	235
-13	13	15	27	4	2021-10-13 16:24:15	115
-14	14	38	33	6	2021-10-06 04:29:32	420
-15	15	40	32	2	2021-09-28 13:58:07	284
-16	16	21	11	3	2021-10-08 15:47:20	460
-17	17	4	40	5	2021-10-03 16:39:56	473
-18	18	35	33	1	2021-10-03 09:44:55	284
-19	19	31	6	5	2021-10-14 07:13:14	419
-20	20	16	24	5	2021-10-13 14:15:18	287
-21	21	4	33	5	2021-09-29 12:54:01	200
-22	22	21	22	6	2021-09-30 00:26:13	329
-23	23	36	30	1	2021-10-11 13:06:21	497
-24	24	34	36	2	2021-09-26 15:25:20	17
-25	25	24	10	6	2021-10-11 12:09:17	267
-26	26	26	12	2	2021-09-28 13:59:32	20
-27	27	2	22	6	2021-09-29 07:50:23	69
-28	28	39	33	3	2021-09-30 05:52:02	166
-29	29	26	39	2	2021-10-08 03:36:32	132
-30	30	25	23	4	2021-10-15 02:08:14	10
-31	31	36	15	5	2021-10-09 05:53:03	202
-32	32	33	25	2	2021-09-28 04:21:39	430
-33	33	16	5	3	2021-10-08 12:04:44	436
-34	34	37	32	3	2021-10-10 15:50:57	422
-35	35	8	29	2	2021-09-28 19:05:16	458
-36	36	28	38	4	2021-10-14 01:53:48	41
-37	37	26	29	6	2021-10-12 23:40:26	195
-38	38	14	12	5	2021-10-12 13:30:28	309
-39	39	11	34	2	2021-09-29 20:11:31	499
-40	40	36	23	5	2021-10-03 09:46:20	453
-41	41	39	26	2	2021-10-15 07:15:42	403
-42	42	36	28	6	2021-10-05 15:14:15	198
-43	43	6	4	6	2021-10-13 01:43:56	402
-44	44	30	34	4	2021-10-13 23:02:24	467
-45	45	26	18	4	2021-10-06 09:18:28	323
-46	46	39	38	5	2021-09-28 19:05:40	399
-47	47	33	31	6	2021-10-15 22:59:18	20
-48	48	18	37	1	2021-10-11 17:25:30	356
-49	49	23	30	4	2021-10-04 20:05:36	165
+1	41	2	5	1	\N	143
+2	41	2	3	5	2021-10-18 07:56:18	337
+3	14	4	1	3	2021-10-14 08:54:00	28
+4	34	1	2	5	2021-10-04 01:03:36	452
+5	30	3	5	5	2021-10-04 23:46:43	188
+6	6	5	2	5	\N	34
+7	34	4	3	2	2021-10-17 21:07:12	436
+8	30	3	5	6	\N	19
+9	34	4	3	2	2021-10-05 09:17:41	4
+10	14	2	3	6	\N	156
+11	34	5	1	3	2021-10-14 21:22:54	477
+12	30	3	1	6	2021-10-15 14:13:26	156
+13	31	3	4	6	2021-10-10 00:24:36	366
+14	31	2	5	4	2021-10-05 14:54:17	156
+15	14	4	2	2	2021-10-11 21:07:00	183
+16	34	5	3	3	2021-10-10 06:59:42	6
+17	34	1	3	2	2021-10-19 11:04:09	404
+18	6	5	4	1	2021-10-01 08:14:06	72
+19	30	3	4	6	2021-10-13 21:14:38	254
+20	41	2	3	3	2021-10-16 08:40:28	412
+21	30	2	5	3	\N	107
+22	6	2	5	2	\N	120
+23	14	4	2	4	2021-10-11 04:35:07	208
+24	36	5	4	4	2021-10-03 08:30:57	237
+25	30	3	2	6	2021-10-06 14:55:19	174
+26	6	1	2	5	\N	324
+27	6	4	3	2	2021-10-19 10:49:19	362
+28	36	1	2	2	2021-10-19 08:44:52	231
+29	6	4	1	2	2021-10-05 05:54:29	302
+30	34	3	1	3	2021-10-16 06:50:48	102
+31	41	5	1	5	\N	357
+32	30	2	5	2	2021-10-12 00:46:13	159
+33	14	5	1	4	2021-10-12 23:23:30	149
+34	30	3	1	6	2021-10-09 20:22:23	17
+35	34	5	1	3	2021-10-11 00:16:24	167
+36	41	5	1	6	\N	91
+37	30	2	4	2	2021-10-07 14:36:05	272
+38	31	3	2	2	\N	156
+39	41	4	1	4	2021-10-01 09:05:45	411
+40	14	4	3	1	\N	200
+41	34	1	4	5	\N	104
+42	34	4	1	6	\N	409
+43	41	3	1	2	2021-10-04 06:36:31	308
+44	34	5	2	4	2021-10-21 07:01:40	483
+45	36	5	1	4	2021-10-19 06:08:00	33
+46	34	2	4	4	\N	289
+47	41	2	4	6	\N	175
+48	36	3	5	5	2021-10-13 23:58:36	263
+49	34	5	3	2	\N	426
 \.
 
 
@@ -417,55 +372,55 @@ COPY public.rides (id, driver_id, start_dest, end_dest, available_seats, complet
 --
 
 COPY public.users (id, username, password, payment_methods, average_rider_rating, total_rider_ratings, is_driver, average_driver_rating, total_driver_ratings) FROM stdin;
-1	Seb764	8q623xwk41sz5t7nprumlyov09	[{"provider": "PayPal", "url": "https://paypal.com/Seb764"}, {"provider": "venmo", "url": "https://venmo.com/Seb764"}]	0.987	8	f	0	0
-2	Rachelle564	xk0q492zm7tpo3lvu6w5sr8ny1	[{"provider": "PayPal", "url": "https://paypal.com/Rachelle564"}, {"provider": "venmo", "url": "https://venmo.com/Rachelle564"}]	0.974	50	f	0	0
-3	Joyce160	r2yons1ut5lp7xqz60wmv4938k	[{"provider": "PayPal", "url": "https://paypal.com/Joyce160"}, {"provider": "venmo", "url": "https://venmo.com/Joyce160"}]	0.204	41	f	0	0
-4	Darryl481	kx37w8yotz9v5m6lr2sq104pnu	[{"provider": "PayPal", "url": "https://paypal.com/Darryl481"}, {"provider": "venmo", "url": "https://venmo.com/Darryl481"}]	0.896	38	f	0	0
-5	Triston5	mv49s5uz2p7x803rkonylw61tq	[{"provider": "PayPal", "url": "https://paypal.com/Triston5"}, {"provider": "venmo", "url": "https://venmo.com/Triston5"}]	0.685	36	f	0	0
-6	Quinn275	wnpxrtq2u18vl6y37kos45m9z0	[{"provider": "PayPal", "url": "https://paypal.com/Quinn275"}]	0.347	19	f	0	0
-7	Alfred918	ptkvl9r1032xz567yoswq8num4	[{"provider": "PayPal", "url": "https://paypal.com/Alfred918"}]	0.454	45	f	0	0
-8	Farah840	05x3w8vz4umon62yk7t1sp9qrl	[{"provider": "PayPal", "url": "https://paypal.com/Farah840"}]	0.261	41	f	0	0
-9	Edie807	w1qr4l2vu7xk6n83os05yzpm9t	[{"provider": "PayPal", "url": "https://paypal.com/Edie807"}]	0	0	t	0.371	20
-10	Karly951	opls4mu1tvk90xr5zqn3w2876y	[{"provider": "PayPal", "url": "https://paypal.com/Karly951"}, {"provider": "venmo", "url": "https://venmo.com/Karly951"}]	0.044	28	f	0	0
-11	Christi441	6mu5pvtswr4lxqky73ozn01289	[{"provider": "PayPal", "url": "https://paypal.com/Christi441"}, {"provider": "venmo", "url": "https://venmo.com/Christi441"}]	0.832	36	f	0	0
-12	Tiegan634	pz23yxl65q4nu8rts7ovk9w10m	[{"provider": "PayPal", "url": "https://paypal.com/Tiegan634"}]	0.329	10	f	0	0
-13	Terrence471	st85zk72xwpm630rq19uyl4vno	[{"provider": "PayPal", "url": "https://paypal.com/Terrence471"}]	0.424	25	f	0	0
-14	Evelyn99	snt2q134umy6rz9l7w58pxv0ok	[{"provider": "PayPal", "url": "https://paypal.com/Evelyn99"}, {"provider": "venmo", "url": "https://venmo.com/Evelyn99"}]	0.840	24	f	0	0
-15	Kiran187	7xz0q2v3w41uyo9rlktnsp58m6	[{"provider": "PayPal", "url": "https://paypal.com/Kiran187"}, {"provider": "venmo", "url": "https://venmo.com/Kiran187"}]	0.208	26	f	0	0
-16	Opal647	41y9rlwkq8zs2mx3po506vn7tu	[{"provider": "PayPal", "url": "https://paypal.com/Opal647"}]	0	0	t	0.527	22
-17	Fabrizia151	8z5kso0t2l4731prmyq9nxw6vu	[{"provider": "PayPal", "url": "https://paypal.com/Fabrizia151"}, {"provider": "venmo", "url": "https://venmo.com/Fabrizia151"}]	0.024	16	f	0	0
-18	Gael83	y6rzqw5ts73o14nm0kxu982pvl	[{"provider": "PayPal", "url": "https://paypal.com/Gael83"}, {"provider": "venmo", "url": "https://venmo.com/Gael83"}]	0.059	11	f	0	0
-19	Flick203	96y5tkw4x37r20mzoqvn8ps1lu	[{"provider": "PayPal", "url": "https://paypal.com/Flick203"}]	0.850	34	f	0	0
-20	Kody795	n9q4t85zply0w6v1sxm32okr7u	[{"provider": "PayPal", "url": "https://paypal.com/Kody795"}]	0.127	15	f	0	0
-21	Neville359	rkmpsl1n432xq9t7zyw65u0vo8	[{"provider": "PayPal", "url": "https://paypal.com/Neville359"}, {"provider": "venmo", "url": "https://venmo.com/Neville359"}]	0.040	50	f	0	0
-22	Magdalene637	yrnklv2q764s1x0o3wtpmz5u98	[{"provider": "PayPal", "url": "https://paypal.com/Magdalene637"}]	0.198	17	f	0	0
-23	Annabeth796	3296xlsu48nqpk7yzmot10rv5w	[{"provider": "PayPal", "url": "https://paypal.com/Annabeth796"}]	0.943	37	f	0	0
-24	Horace380	12l78o3tr4v650su9zkpmnwqxy	[{"provider": "PayPal", "url": "https://paypal.com/Horace380"}, {"provider": "venmo", "url": "https://venmo.com/Horace380"}]	0.235	41	f	0	0
-25	Oisin309	tzn4s1qrmwoy82l3u50xk67vp9	[{"provider": "PayPal", "url": "https://paypal.com/Oisin309"}]	0.092	26	f	0	0
-26	Ryan650	szt503xon817wmk6rlqv249yup	[{"provider": "PayPal", "url": "https://paypal.com/Ryan650"}, {"provider": "venmo", "url": "https://venmo.com/Ryan650"}]	0.923	44	f	0	0
-27	Anita397	sw65p7uvm0n218r4xlkq3t9yzo	[{"provider": "PayPal", "url": "https://paypal.com/Anita397"}, {"provider": "venmo", "url": "https://venmo.com/Anita397"}]	0.095	11	f	0	0
-28	Jocelyn394	m0pwvxtn8zlso917u4kr265qy3	[{"provider": "PayPal", "url": "https://paypal.com/Jocelyn394"}]	0.318	14	f	0	0
-29	Ziva244	ny04mts3rzp72qov658kwu19xl	[{"provider": "PayPal", "url": "https://paypal.com/Ziva244"}, {"provider": "venmo", "url": "https://venmo.com/Ziva244"}]	0.783	35	f	0	0
-30	Lorie41	7o5w063yvzqnlmpt2r8k9x4us1	[{"provider": "PayPal", "url": "https://paypal.com/Lorie41"}]	0.195	47	f	0	0
-31	Laila881	xnw906mq5t47zyr18okp3vsl2u	[{"provider": "PayPal", "url": "https://paypal.com/Laila881"}]	0.737	12	f	0	0
-32	Mariam510	21wtkl479m60povxun38zsrq5y	[{"provider": "PayPal", "url": "https://paypal.com/Mariam510"}]	0.387	38	f	0	0
-33	Jonas979	wk5mrt73u942zpls8vx0nqoy61	[{"provider": "PayPal", "url": "https://paypal.com/Jonas979"}]	0.439	36	f	0	0
-34	Ashlynn359	3rzt8qks9ol4myv27w0nx165pu	[{"provider": "PayPal", "url": "https://paypal.com/Ashlynn359"}, {"provider": "venmo", "url": "https://venmo.com/Ashlynn359"}]	0.484	15	f	0	0
-35	Verity1000	o86vtpqz459xw7m1sn0urk23yl	[{"provider": "PayPal", "url": "https://paypal.com/Verity1000"}, {"provider": "venmo", "url": "https://venmo.com/Verity1000"}]	0.886	17	f	0	0
-36	Latoya688	yolpuvtw51s9r2n76qxz80mk43	[{"provider": "PayPal", "url": "https://paypal.com/Latoya688"}]	0	0	t	0.657	38
-37	Miriam601	orytqwup58x6n39skvlzm02174	[{"provider": "PayPal", "url": "https://paypal.com/Miriam601"}]	0.267	1	f	0	0
-38	Lia985	25xyn38ol0mtzsvq4urk769pw1	[{"provider": "PayPal", "url": "https://paypal.com/Lia985"}, {"provider": "venmo", "url": "https://venmo.com/Lia985"}]	0.080	27	f	0	0
-39	Adelia488	2v8xsyw0no6z319rkq45mtlup7	[{"provider": "PayPal", "url": "https://paypal.com/Adelia488"}]	0.799	27	f	0	0
-40	Kizzy786	q23564k08xs9y1um7rlnvptzow	[{"provider": "PayPal", "url": "https://paypal.com/Kizzy786"}, {"provider": "venmo", "url": "https://venmo.com/Kizzy786"}]	0	0	t	0.427	36
-41	Angus186	qxmsrpw9kuovl417t8z52063ny	[{"provider": "PayPal", "url": "https://paypal.com/Angus186"}, {"provider": "venmo", "url": "https://venmo.com/Angus186"}]	0.838	20	f	0	0
-42	Catherine281	t7p184lwm63k0xouv2rzsqy5n9	[{"provider": "PayPal", "url": "https://paypal.com/Catherine281"}]	0.806	13	f	0	0
-43	Tim299	ony9mp4v5837ls6uz2rqkxwt10	[{"provider": "PayPal", "url": "https://paypal.com/Tim299"}]	0.555	46	f	0	0
-44	Bronagh656	3sxtyp2q516uokl490zw8rvmn7	[{"provider": "PayPal", "url": "https://paypal.com/Bronagh656"}]	0.648	11	f	0	0
-45	Rue457	ytn6s3qwxp259o8ruzk47ml1v0	[{"provider": "PayPal", "url": "https://paypal.com/Rue457"}]	0.809	3	f	0	0
-46	Margie835	txmzn1slo2q8p476y539r0uwkv	[{"provider": "PayPal", "url": "https://paypal.com/Margie835"}, {"provider": "venmo", "url": "https://venmo.com/Margie835"}]	0	0	t	0.550	12
-47	Leanne281	o89v3ytrn4kx0pls27uwmqz156	[{"provider": "PayPal", "url": "https://paypal.com/Leanne281"}]	0.703	5	f	0	0
-48	Tobin245	rvol3zu650y91pkt7x4nm8w2sq	[{"provider": "PayPal", "url": "https://paypal.com/Tobin245"}]	0.283	21	f	0	0
-49	Charlton959	smo379qtvznp06lu2wy4xr581k	[{"provider": "PayPal", "url": "https://paypal.com/Charlton959"}]	0.323	39	f	0	0
+1	Mea966	mkr923vn85px0lu6w4zts1yo7q	[{"provider": "PayPal", "url": "https://paypal.com/Mea966"}, {"provider": "venmo", "url": "https://venmo.com/Mea966"}]	0.807	35	f	0	0
+2	Sue647	y0r9t814no7zsm2vpqxu65wkl3	[{"provider": "PayPal", "url": "https://paypal.com/Sue647"}, {"provider": "venmo", "url": "https://venmo.com/Sue647"}]	0.743	40	f	0	0
+3	Aida412	mtzvuxyws3q6pr2n179k580l4o	[{"provider": "PayPal", "url": "https://paypal.com/Aida412"}, {"provider": "venmo", "url": "https://venmo.com/Aida412"}]	0.202	27	f	0	0
+4	Alison639	lv13t76xqw09y845orumznp2sk	[{"provider": "PayPal", "url": "https://paypal.com/Alison639"}, {"provider": "venmo", "url": "https://venmo.com/Alison639"}]	0.355	7	f	0	0
+5	Luciano786	s3twv2980nmx6p45url7ykoz1q	[{"provider": "PayPal", "url": "https://paypal.com/Luciano786"}]	0.403	24	f	0	0
+6	Nishka931	0sz8x315puq72vmt6ko49nlywr	[{"provider": "PayPal", "url": "https://paypal.com/Nishka931"}]	0	0	t	0.796	14
+7	Cassidy649	n9y8xu052p7qm41o3tzl6skvrw	[{"provider": "PayPal", "url": "https://paypal.com/Cassidy649"}, {"provider": "venmo", "url": "https://venmo.com/Cassidy649"}]	0.952	7	f	0	0
+8	Manny218	p1l8472k3vywo9t6u0ms5qrznx	[{"provider": "PayPal", "url": "https://paypal.com/Manny218"}, {"provider": "venmo", "url": "https://venmo.com/Manny218"}]	0.501	21	f	0	0
+9	Alexis9	987rus5v4kxnqot01wm6p2yl3z	[{"provider": "PayPal", "url": "https://paypal.com/Alexis9"}]	0.318	25	f	0	0
+10	Bellamy389	7umy05ln2kxr64svpt8zqw9o13	[{"provider": "PayPal", "url": "https://paypal.com/Bellamy389"}]	0.290	46	f	0	0
+11	Brooks598	2zw97p0ltuq8xry3mk54s16nvo	[{"provider": "PayPal", "url": "https://paypal.com/Brooks598"}]	0.176	39	f	0	0
+12	Edie646	08ysnu4v6qlr9kz17w25pt3xom	[{"provider": "PayPal", "url": "https://paypal.com/Edie646"}]	0.090	36	f	0	0
+13	Jemima361	rw308k4lqt2pv5noms1yz697ux	[{"provider": "PayPal", "url": "https://paypal.com/Jemima361"}, {"provider": "venmo", "url": "https://venmo.com/Jemima361"}]	0.634	49	f	0	0
+14	Ramon4	34vsr1ln2mypux8q7otkz950w6	[{"provider": "PayPal", "url": "https://paypal.com/Ramon4"}]	0	0	t	0.771	19
+15	Lou902	qlo3wpx189r6kt2mn07us5yvz4	[{"provider": "PayPal", "url": "https://paypal.com/Lou902"}]	0.932	22	f	0	0
+16	Donald919	wvrxk95zt2614lyn0spoqu387m	[{"provider": "PayPal", "url": "https://paypal.com/Donald919"}, {"provider": "venmo", "url": "https://venmo.com/Donald919"}]	0.557	8	f	0	0
+17	Marion695	619nl58zptmu3yvro24kwsqx70	[{"provider": "PayPal", "url": "https://paypal.com/Marion695"}]	0.491	34	f	0	0
+18	Jamie820	tv9o2un47kzrxm51wqs6l0p3y8	[{"provider": "PayPal", "url": "https://paypal.com/Jamie820"}, {"provider": "venmo", "url": "https://venmo.com/Jamie820"}]	0.239	38	f	0	0
+19	Irving880	orkl4w89qnu07xpy1t625zs3vm	[{"provider": "PayPal", "url": "https://paypal.com/Irving880"}]	0.668	25	f	0	0
+20	Reynaldo281	914lmtu0wpvn6ys8o53kqr7xz2	[{"provider": "PayPal", "url": "https://paypal.com/Reynaldo281"}, {"provider": "venmo", "url": "https://venmo.com/Reynaldo281"}]	0.327	49	f	0	0
+21	Duke415	7zkv1l9snpt5r02o68qyuwm43x	[{"provider": "PayPal", "url": "https://paypal.com/Duke415"}]	0.011	17	f	0	0
+22	Bobby492	5lrykmztn14q9spuv3w0x287o6	[{"provider": "PayPal", "url": "https://paypal.com/Bobby492"}]	0.203	37	f	0	0
+23	Grainne139	nq62u9z8oxrl47p1tk30ms5wyv	[{"provider": "PayPal", "url": "https://paypal.com/Grainne139"}]	0.396	5	f	0	0
+24	Alka696	3mlsz01kqun89vp4rywt2756xo	[{"provider": "PayPal", "url": "https://paypal.com/Alka696"}, {"provider": "venmo", "url": "https://venmo.com/Alka696"}]	0.380	10	f	0	0
+25	Sherrie666	7m8tupv9s04nl5o263wqz1ykrx	[{"provider": "PayPal", "url": "https://paypal.com/Sherrie666"}]	0.057	18	f	0	0
+26	Blair864	3w86ok5ul1yv04mxq2tnsrz79p	[{"provider": "PayPal", "url": "https://paypal.com/Blair864"}]	0.631	20	f	0	0
+27	India604	zw91m238pl605uxsy4tq7nkrov	[{"provider": "PayPal", "url": "https://paypal.com/India604"}]	0.933	49	f	0	0
+28	Demi179	rn1l4ok386yp2sxtmu0z79v5qw	[{"provider": "PayPal", "url": "https://paypal.com/Demi179"}, {"provider": "venmo", "url": "https://venmo.com/Demi179"}]	0.334	27	f	0	0
+29	Neve158	l4sp5o17930trqxzmykwun6v28	[{"provider": "PayPal", "url": "https://paypal.com/Neve158"}]	0.702	44	f	0	0
+30	Brent75	o0yx3wr2uzt7l46qns5kv89mp1	[{"provider": "PayPal", "url": "https://paypal.com/Brent75"}]	0	0	t	0.480	28
+31	Philomena63	9ko3vnwpuq8yr4m620t5xl1sz7	[{"provider": "PayPal", "url": "https://paypal.com/Philomena63"}, {"provider": "venmo", "url": "https://venmo.com/Philomena63"}]	0	0	t	0.795	47
+32	Brenton337	4yr1395pow6lu0z2tkm7x8vnsq	[{"provider": "PayPal", "url": "https://paypal.com/Brenton337"}]	0.592	38	f	0	0
+33	Vicki54	50zy3u4pms2n81xwvltr976okq	[{"provider": "PayPal", "url": "https://paypal.com/Vicki54"}, {"provider": "venmo", "url": "https://venmo.com/Vicki54"}]	0.192	44	f	0	0
+34	Cara556	56x1w9q8yt0znvs32ukmop47lr	[{"provider": "PayPal", "url": "https://paypal.com/Cara556"}]	0	0	t	0.228	5
+35	Meera67	w8xr304kqs91ymltp5u72o6zvn	[{"provider": "PayPal", "url": "https://paypal.com/Meera67"}]	0.929	17	f	0	0
+36	Clarence156	r2tw7v19p6038sznkx4lq5yuom	[{"provider": "PayPal", "url": "https://paypal.com/Clarence156"}, {"provider": "venmo", "url": "https://venmo.com/Clarence156"}]	0	0	t	0.583	15
+37	Janie326	o8yvrl97s3p5xm0z4612ntuwkq	[{"provider": "PayPal", "url": "https://paypal.com/Janie326"}, {"provider": "venmo", "url": "https://venmo.com/Janie326"}]	0.730	11	f	0	0
+38	Clancy131	4pl26tk8yv79wnmxsrq013z5ou	[{"provider": "PayPal", "url": "https://paypal.com/Clancy131"}, {"provider": "venmo", "url": "https://venmo.com/Clancy131"}]	0.711	41	f	0	0
+39	Wesley412	ov8py9206tlwx473uzr1nqmk5s	[{"provider": "PayPal", "url": "https://paypal.com/Wesley412"}]	0.559	32	f	0	0
+40	Zac285	415w9qz3l6u2rm8tyv0kpons7x	[{"provider": "PayPal", "url": "https://paypal.com/Zac285"}]	0.891	31	f	0	0
+41	Jonas971	pnw542zuvsly7639rk8txm1q0o	[{"provider": "PayPal", "url": "https://paypal.com/Jonas971"}, {"provider": "venmo", "url": "https://venmo.com/Jonas971"}]	0	0	t	0.899	32
+42	Ailsa967	lu9qy1n6x72wz8prs3kvm405to	[{"provider": "PayPal", "url": "https://paypal.com/Ailsa967"}]	0.335	48	f	0	0
+43	Veronica285	2qnrl79x30wyk684tms15opzuv	[{"provider": "PayPal", "url": "https://paypal.com/Veronica285"}]	0.254	33	f	0	0
+44	Athena626	3l694wkyrsx720u8p1tzqmn5vo	[{"provider": "PayPal", "url": "https://paypal.com/Athena626"}]	0.153	48	f	0	0
+45	Bernadette852	o52qr34kytsx0v1pzn7m68luw9	[{"provider": "PayPal", "url": "https://paypal.com/Bernadette852"}, {"provider": "venmo", "url": "https://venmo.com/Bernadette852"}]	0.310	32	f	0	0
+46	Mimi501	mlrn14o9u60x3q7zys28tkvp5w	[{"provider": "PayPal", "url": "https://paypal.com/Mimi501"}, {"provider": "venmo", "url": "https://venmo.com/Mimi501"}]	0.874	3	f	0	0
+47	Tamra88	vkn3z7x0ly5otpsr1qm64829wu	[{"provider": "PayPal", "url": "https://paypal.com/Tamra88"}, {"provider": "venmo", "url": "https://venmo.com/Tamra88"}]	0.596	37	f	0	0
+48	Arwen683	kmtzp4w72n6lvysurxq15083o9	[{"provider": "PayPal", "url": "https://paypal.com/Arwen683"}, {"provider": "venmo", "url": "https://venmo.com/Arwen683"}]	0.870	30	f	0	0
+49	Mikhaela101	kvn127s0l9qxw685o43zmtrpuy	[{"provider": "PayPal", "url": "https://paypal.com/Mikhaela101"}]	0.934	33	f	0	0
 \.
 
 
@@ -660,3 +615,4 @@ ALTER TABLE ONLY public.users_rides
 --
 -- PostgreSQL database dump complete
 --
+
