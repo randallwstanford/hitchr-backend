@@ -12,17 +12,24 @@ const createRide = `
     VALUES($1, $2, $3, $4, $5, $6)
   ) SELECT setval('rides_id_seq',(SELECT MAX(id) from rides))
 `;
-const getNameStartEndDestination = `
+const getStartEndDestination = `
   SELECT
-    id,
     (
-      SELECT id as start_dest FROM destinations WHERE name = $2 limit 1
+      SELECT id as end_dest FROM destinations WHERE name = $2 limit 1
     ),
     (
-      SELECT id as end_dest FROM destinations WHERE name = $3 limit 1
+      SELECT id as start_dest FROM destinations WHERE name = $1 limit 1
+    );
+`;
+const createDestination = `
+  with updated as
+  (
+  INSERT INTO destinations(
+    name,
+    coordinate
     )
-  FROM users
-  WHERE username = $1;
+    VALUES($1, $2)
+  ) SELECT setval('destinations_id_seq',(SELECT MAX(id) from destinations))
 `;
 
 const getRideById = `
@@ -140,5 +147,6 @@ module.exports = {
   getRidesByDestinations,
   getRides,
   completeRide,
-  getNameStartEndDestination,
+  getStartEndDestination,
+  createDestination,
 };
