@@ -84,7 +84,6 @@ describe('Given a blank database', () => {
         expect(loginResponse.statusCode).toBe(201);
       });
       test('Then the server should give the user information', () => {
-        console.log(loginResponse.body);
         expect(loginResponse.body).toHaveProperty('sessionId');
         expect(loginResponse.body.username).toBe('user');
       });

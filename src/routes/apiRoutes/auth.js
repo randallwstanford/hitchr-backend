@@ -20,8 +20,9 @@ function AuthRouter(context) {
     } = req.body;
     if (username && password && isDriver !== undefined && paymentMethods) {
       const passHash = password;
+      let result;
       try {
-        await login.createUser(
+        result = await login.createUser(
           context.client,
           username,
           passHash,
@@ -33,7 +34,10 @@ function AuthRouter(context) {
         res.status(500).send();
         return;
       }
-      res.status(201).send({ session: makeSession() });
+      const userId = result.rows[0]?.id;
+      const user = await login.getUserById(context.client, userId);
+      delete user.password;
+      res.status(201).send({ session: makeSession(), ...(camelcaseKeys(user)) });
     } else {
       res.status(400).send();
     }
@@ -56,7 +60,9 @@ function AuthRouter(context) {
         return;
       }
       if (user) {
-        res.status(201).send({ sessionId: makeSession(), ...(camelcaseKeys(user)) });
+        const result = { sessionId: makeSession(), ...(camelcaseKeys(user)) };
+        delete result.password;
+        res.status(201).send(result);
       } else {
         res.status(401).send();
       }

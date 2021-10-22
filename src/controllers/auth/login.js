@@ -17,3 +17,9 @@ module.exports.getUser = async (client, username, passHash) => {
   const result = await client.query(query, [username, passHash]);
   return result.rows[0];
 };
+
+module.exports.getUserById = async (client, id) => {
+  const query = await getQuery(path.join(__dirname, 'getUserById.sql'));
+  const result = await client.query(query, [id]);
+  return result.rows[0];
+};
